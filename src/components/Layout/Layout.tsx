@@ -7,7 +7,7 @@ import css from './Layout.module.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className={css.layout}>
       <Suspense fallback={<Loader />}>
         <Header />
         <main>{children}</main>

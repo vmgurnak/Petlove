@@ -1,4 +1,21 @@
 .nav {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  align-items: center;
+}
+.link {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 15px 20px;
+  /* width: 97px;
+  height: 50px; */
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.active {
+  border: 1px solid var(--orange);
 }

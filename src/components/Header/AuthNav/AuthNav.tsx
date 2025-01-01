@@ -1,12 +1,22 @@
 import { NavLink } from 'react-router-dom';
+import { FC } from 'react';
+import clsx from 'clsx';
 
 import css from './AuthNav.module.css';
 
-const AuthNav = () => {
+interface AuthNavProps {
+  addClass?: string;
+}
+
+const AuthNav: FC<AuthNavProps> = ({ addClass }): JSX.Element => {
   return (
-    <div className={css.authNav}>
-      <NavLink to="/login">Log In</NavLink>
-      <NavLink to="/register">Registration</NavLink>
+    <div className={clsx(css.authNav, addClass)}>
+      <NavLink className={css.login} to="/login">
+        Log In
+      </NavLink>
+      <NavLink className={css.register} to="/register">
+        Registration
+      </NavLink>
     </div>
   );
 };

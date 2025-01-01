@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+
+  fill: var(--orange);
+
+  @media (min-width: 768px) {
+    width: 23px;
+    height: 23px;
+  }
+}

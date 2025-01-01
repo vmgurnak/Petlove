@@ -1,0 +1,11 @@
+.logOut {
+  border-radius: 30px;
+  padding: 15px 35px;
+  background-color: var(--orange);
+
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+}
