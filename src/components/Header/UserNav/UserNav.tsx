@@ -7,13 +7,14 @@ import css from './UserNav.module.css';
 
 interface UserNavProps {
   addClass?: string;
+  isLight?: boolean;
 }
 
-const UserNav: FC<UserNavProps> = ({ addClass }): JSX.Element => {
+const UserNav: FC<UserNavProps> = ({ addClass, isLight }): JSX.Element => {
   return (
     <div className={clsx(css.userNav, addClass)}>
-      <LogOutBtn />
-      <UserBar />
+      <LogOutBtn isLight={isLight} />
+      <UserBar isLight={isLight} />
     </div>
   );
 };

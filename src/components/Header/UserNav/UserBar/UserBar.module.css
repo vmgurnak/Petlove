@@ -27,3 +27,7 @@
   line-height: 1;
   letter-spacing: -0.03em;
 }
+
+.name.light {
+  color: var(--white);
+}

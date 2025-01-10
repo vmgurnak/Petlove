@@ -9,13 +9,17 @@ import css from './Logo.module.css';
 
 interface LogoProp {
   addClass?: string;
+  isLight?: boolean;
 }
 
-const Logo: FC<LogoProp> = ({ addClass }): JSX.Element => {
+const Logo: FC<LogoProp> = ({ addClass, isLight }): JSX.Element => {
   return (
-    <Link className={clsx(css.logo, addClass)} to="/">
+    <Link className={clsx(css.logo, addClass, isLight && css.light)} to="/">
       petl
-      <SvgIcon addClass={css.icon} icon={ICONS.heart} />
+      <SvgIcon
+        addClass={clsx(css.icon, isLight && css.light)}
+        icon={ICONS.heart}
+      />
       ve
     </Link>
   );

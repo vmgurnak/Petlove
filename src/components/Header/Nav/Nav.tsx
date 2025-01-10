@@ -9,11 +9,12 @@ const buildClass = ({ isActive }: { isActive: boolean }) =>
 
 interface NavProps {
   addClass?: string;
+  isLight?: boolean;
 }
 
-const Nav: FC<NavProps> = ({ addClass }): JSX.Element => {
+const Nav: FC<NavProps> = ({ addClass, isLight }): JSX.Element => {
   return (
-    <nav className={clsx(css.nav, addClass)}>
+    <nav className={clsx(css.nav, addClass, isLight && css.light)}>
       <NavLink className={buildClass} to="/news">
         News
       </NavLink>

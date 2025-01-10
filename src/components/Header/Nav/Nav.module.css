@@ -3,19 +3,26 @@
   gap: 10px;
   align-items: center;
 }
+
+.nav.light {
+  color: var(--white);
+  /* border: 1px solid rgba(255, 255, 255, 0.4); */
+}
+
 .link {
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
-  padding: 15px 20px;
-  /* width: 97px;
-  height: 50px; */
+  padding: 14.5px 20px;
 
   font-weight: 500;
-  font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.03em;
 }
 
-.active {
+.light > .link {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.link.active {
   border: 1px solid var(--orange);
 }

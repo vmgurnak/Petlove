@@ -1,15 +1,27 @@
 .header {
   display: flex;
-
   align-items: center;
+  height: 40px;
+
+  @media (min-width: 768px) {
+    height: 50px;
+  }
 }
 
 .logo {
   margin-right: auto;
+
+  @media (min-width: 1280px) {
+    margin-right: 280px;
+  }
 }
 
 .nav {
   margin-right: 142px;
+
+  @media (min-width: 1280px) {
+    margin-right: auto;
+  }
 }
 
 .authNav {

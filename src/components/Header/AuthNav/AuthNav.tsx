@@ -6,15 +6,19 @@ import css from './AuthNav.module.css';
 
 interface AuthNavProps {
   addClass?: string;
+  isLight?: boolean;
 }
 
-const AuthNav: FC<AuthNavProps> = ({ addClass }): JSX.Element => {
+const AuthNav: FC<AuthNavProps> = ({ addClass, isLight }): JSX.Element => {
   return (
     <div className={clsx(css.authNav, addClass)}>
-      <NavLink className={css.login} to="/login">
+      <NavLink className={clsx(css.login, isLight && css.light)} to="/login">
         Log In
       </NavLink>
-      <NavLink className={css.register} to="/register">
+      <NavLink
+        className={clsx(css.register, isLight && css.light)}
+        to="/register"
+      >
         Registration
       </NavLink>
     </div>
