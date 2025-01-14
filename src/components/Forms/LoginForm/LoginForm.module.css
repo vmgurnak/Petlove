@@ -1,0 +1,48 @@
+.loginForm {
+  width: 335px;
+  height: 422px;
+  border-radius: 30px;
+  padding: 60px 20px;
+
+  background-color: var(--white);
+
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  @media (min-width: 768px) {
+    width: 704px;
+    height: 560px;
+    border-radius: 60px;
+    padding: 71px 140px;
+  }
+
+  @media (min-width: 1280px) {
+    border-radius: 60px;
+    width: 592px;
+    height: 654px;
+    padding: 118px 84px;
+  }
+}
+
+.title {
+  margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 16px;
+  }
+}
+
+.text {
+  margin-bottom: 24px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}

@@ -20,8 +20,8 @@ const Header: FC<HeaderProps> = ({ addClass, isLight }): JSX.Element => {
   const isLoggerIn = false;
 
   return (
-    <header className={clsx(css.header, addClass)}>
-      <Logo addClass={css.logo} isLight={isLight} />
+    <header className={clsx(css.header, addClass, isLight && css.light)}>
+      <Logo addClass={clsx(css.logo, isLight && css.light)} isLight={isLight} />
       {width >= 1280 && <Nav addClass={css.nav} isLight={isLight} />}
       {width >= 768 &&
         (isLoggerIn ? (

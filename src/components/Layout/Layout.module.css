@@ -4,8 +4,10 @@
 
   padding: 0 20px;
 
+  background-color: var(--background);
+
   outline: 1px solid red;
-  outline-offset: -2px;
+  outline-offset: -1px;
 
   @media (min-width: 768px) {
     width: 768px;
