@@ -1,0 +1,19 @@
+.petBlock {
+  width: 335px;
+  height: 280px;
+  border-radius: 30px;
+
+  background-color: var(--orange);
+
+  @media (min-width: 768px) {
+    width: 704px;
+    height: 302px;
+    border-radius: 60px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 592px;
+    height: 654px;
+    border-radius: 60px;
+  }
+}

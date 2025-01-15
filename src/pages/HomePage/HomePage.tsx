@@ -1,8 +1,7 @@
 import Header from '../../components/Header/Header';
 import css from './HomePage.module.css';
 
-import homeImgMob from '../../assets/home-page/home-img-mob1x.jpg';
-import homeImgMob2x from '../../assets/home-page/home-img-mob2x.jpg';
+import { IMAGES_HOME } from '../../constants/constants';
 
 const HomePage = () => {
   return (
@@ -20,22 +19,18 @@ const HomePage = () => {
         </div>
       </div>
       <div className={css.imgWrap}>
-        {/* <picture> */}
-        {/* <source srcSet={homeImgMob} type="image/jpeg" sizes="335px, 100vw" /> */}
-        {/* <source
-            media="(max-width: 767px)"
-            srcSet={homeImgMob}
-            type="image/jpeg"
-            sizes="(max-width: 767px) 335px, 100vw"
-          /> */}
-        {/* <source
-            media="(max-width: 767px)"
-            srcSet={homeImgMob2x}
-            type="image/jpeg"
-          /> */}
-        {/* <img srcSet="{homeImgMob} 1x, {homeImgMob2x} 2x" alt="pets" /> */}
-        {/* </picture> */}
-        <img className={css.img} src={homeImgMob} alt="pets" />
+        <picture>
+          <source
+            srcSet={`${IMAGES_HOME.pc1x} 1x, ${IMAGES_HOME.pc2x} 2x`}
+            media="(min-width: 1280px)"
+          />
+          <source
+            srcSet={`${IMAGES_HOME.tab1x} 1x, ${IMAGES_HOME.tab2x} 2x`}
+            media="(min-width: 768px)"
+          />
+          <source srcSet={`${IMAGES_HOME.mob1x} 1x, ${IMAGES_HOME.mob2x} 2x`} />
+          <img src={IMAGES_HOME.mob1x} alt="pets" />
+        </picture>
       </div>
     </div>
   );
