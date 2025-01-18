@@ -1,7 +1,7 @@
 import Title from '../../Title/Title';
 import css from './LoginForm.module.css';
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   return (
     <div className={css.loginForm}>
       <Title textTitle="Log in" addClass={css.title} />
@@ -12,4 +12,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

@@ -76,6 +76,12 @@ img {
   --transition-delay: 250ms;
 }
 
+input:-webkit-autofill {
+  /* Стили для автозаполненных полей */
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  box-shadow: 0 0 0px 1000px #fff inset;
+}
+
 /* ------------BASE STYLES------------ */
 
 body {

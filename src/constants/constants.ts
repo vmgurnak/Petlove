@@ -26,6 +26,8 @@ export const ICONS = {
   heartWhite: `${icons}#heart-white`,
   mobMenu: `${icons}#mob-menu`,
   avatar: `${icons}#avatar`,
+  eye: `${icons}#eye`,
+  eyeOff: `${icons}#eye-off`,
 };
 
 export const IMAGES_HOME = {
