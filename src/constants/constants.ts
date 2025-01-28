@@ -28,6 +28,8 @@ export const ICONS = {
   avatar: `${icons}#avatar`,
   eye: `${icons}#eye`,
   eyeOff: `${icons}#eye-off`,
+  cross: `${icons}#cross`,
+  check: `${icons}#check`,
 };
 
 export const IMAGES_HOME = {

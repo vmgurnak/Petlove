@@ -1,7 +1,9 @@
 import * as Yup from 'yup';
 
 export const regFormValidation = Yup.object().shape({
-  name: Yup.string().required('Name is required!'),
+  name: Yup.string()
+    .min(3, 'Name must be at least 3 characters!')
+    .required('Name is required!'),
   email: Yup.string()
     .email('Enter a valid email!')
     .matches(

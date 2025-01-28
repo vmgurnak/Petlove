@@ -1,11 +1,14 @@
 import * as Yup from 'yup';
 
-export const signInFormValidation = Yup.object().shape({
+export const loginFormValidation = Yup.object().shape({
   email: Yup.string()
-    .email('Must be a valid email!')
+    .email('Enter a valid email!')
+    .matches(
+      /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+      'Enter a valid email!'
+    )
     .required('Email is required!'),
   password: Yup.string()
-    .min(8, 'Password must be at least 8 characters!')
-    .matches(/[a-zA-Z]/, 'Password must be contain at least one Latin letter.')
+    .min(7, 'Password must be at least 7 characters!')
     .required('Password is required!'),
 });

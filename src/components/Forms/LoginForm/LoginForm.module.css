@@ -1,27 +1,38 @@
-.loginForm {
+.loginWrap {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 335px;
   height: 422px;
   border-radius: 30px;
-  padding: 60px 20px;
+  padding: 0 20px;
 
   background-color: var(--white);
-
-  outline: 1px solid red;
-  outline-offset: -1px;
 
   @media (min-width: 768px) {
     width: 704px;
     height: 560px;
     border-radius: 60px;
-    padding: 71px 140px;
+    padding: 0 140px;
   }
 
   @media (min-width: 1280px) {
     border-radius: 60px;
     width: 592px;
     height: 654px;
-    padding: 118px 84px;
+    padding: 0 84px;
   }
+}
+
+.loginForm {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  width: 100%;
 }
 
 .title {
@@ -45,4 +56,89 @@
     font-size: 18px;
     line-height: 1.22;
   }
+}
+
+.form {
+}
+
+.inputWrap {
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 16px;
+  }
+}
+
+.inputWrap:nth-child(2) {
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 64px;
+  }
+}
+
+.error {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--red);
+
+  @media (min-width: 768px) {
+    padding-left: 12px;
+    font-size: 12px;
+    line-height: 1.17;
+
+    @media (min-width: 1280px) {
+      padding-left: 16px;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 12px;
+
+  border-radius: 30px;
+  padding: 12px 99px;
+  background-color: var(--orange);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+
+  @media (min-width: 768px) {
+    margin-bottom: 16px;
+    padding: 16px 157px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.textLink {
+  text-align: center;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.03em;
+  color: rgba(38, 38, 38, 0.5);
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding-left: 4px;
+
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #f6b83d;
 }

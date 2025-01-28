@@ -1,28 +1,24 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
 
+import InputForm from '../InputForm/InputForm.tsx';
 import Title from '../../Title/Title';
-import { ICONS } from '../../../constants/constants.ts';
-import { SvgIcon } from '../../../helpers/SvgIcon.tsx';
 import { regFormValidation } from '../../../Validation/regFormValidation.ts';
 
 import css from './RegistrationForm.module.css';
+import { Link } from 'react-router-dom';
 
 const RegistrationForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isDirty },
+    watch,
+    formState: { errors },
     reset,
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(regFormValidation),
   });
-
-  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const onSubmit = (data: object) => {
     console.log(data);
@@ -30,80 +26,74 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className={css.registrationForm}>
-      <Title textTitle="Registration" addClass={css.title} />
-      <p className={css.text}>Thank you for your interest in our platform.</p>
-      <form
-        className={css.form}
-        onSubmit={handleSubmit(onSubmit)}
-        autoComplete="on"
-        noValidate
-      >
-        <label className={css.label}>
-          <input
-            className={css.input}
-            type="text"
+    <div className={css.registrationWpap}>
+      <div className={css.registrationForm}>
+        <Title textTitle="Registration" addClass={css.title} />
+        <p className={css.text}>Thank you for your interest in our platform.</p>
+        <form
+          className={css.form}
+          onSubmit={handleSubmit(onSubmit)}
+          autoComplete="on"
+          noValidate
+        >
+          <InputForm
             placeholder="Name"
+            error={errors.name ? true : false}
+            valueInput={watch('name')}
+            addClass={css.inputWrap}
             {...register('name')}
-          />
-          {errors.name && <p className={css.error}>{errors.name.message}</p>}
-        </label>
-        <label className={css.label}>
-          <input
-            className={css.input}
+          >
+            {errors.name && <p className={css.error}>{errors.name.message}</p>}
+          </InputForm>
+          <InputForm
             type="email"
             placeholder="Email"
+            error={errors.email ? true : false}
+            valueInput={watch('email')}
+            addClass={css.inputWrap}
             {...register('email')}
-          />
-          {errors.email && <p className={css.error}>{errors.email.message}</p>}
-        </label>
-        <label className={css.label}>
-          <input
-            className={css.input}
-            type={showPassword ? 'text' : 'password'}
+          >
+            {errors.email && (
+              <p className={css.error}>{errors.email.message}</p>
+            )}
+          </InputForm>
+          <InputForm
+            type="password"
             placeholder="Password"
+            error={errors.password ? true : false}
+            valueInput={watch('password')}
+            iconEye={true}
+            addClass={css.inputWrap}
             {...register('password')}
-          />
-          {errors.password && (
-            <p className={css.error}>{errors.password.message}</p>
-          )}
-          <button
-            className={css.btnIcon}
-            type="button"
-            onClick={handleTogglePassword}
           >
-            <SvgIcon
-              addClass={css.icon}
-              icon={showPassword ? ICONS.eye : ICONS.eyeOff}
-            />
-          </button>
-        </label>
-        <label className={css.label}>
-          <input
-            className={css.input}
-            type={showPassword ? 'text' : 'password'}
+            {errors.password && (
+              <p className={css.error}>{errors.password.message}</p>
+            )}
+          </InputForm>
+          <InputForm
+            type="password"
             placeholder="Confirm Password"
+            error={errors.repeatPassword ? true : false}
+            valueInput={watch('repeatPassword')}
+            iconEye={true}
+            addClass={css.inputWrap}
             {...register('repeatPassword')}
-          />
-          {errors.repeatPassword && (
-            <p className={css.error}>{errors.repeatPassword.message}</p>
-          )}
-          <button
-            className={css.btnIcon}
-            type="button"
-            onClick={handleTogglePassword}
           >
-            <SvgIcon
-              addClass={css.icon}
-              icon={showPassword ? ICONS.eye : ICONS.eyeOff}
-            />
+            {errors.repeatPassword && (
+              <p className={css.error}>{errors.repeatPassword.message}</p>
+            )}
+          </InputForm>
+          <button className={css.btn} type="submit">
+            Registration
           </button>
-        </label>
-
-        <button className={css.btn} type="submit">
-          Registration
-        </button>
-      </form>
+          <p className={css.textLink}>
+            Already have an account?
+            <Link className={css.link} to="/login">
+              Log in
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
