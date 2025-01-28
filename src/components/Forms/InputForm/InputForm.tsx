@@ -14,9 +14,10 @@ interface InputFormProps {
   valueInput?: string;
   iconEye?: boolean;
   addClass?: string;
+  ref?: LegacyRef<HTMLInputElement>;
 }
 
-export type InputFormRef = LegacyRef<HTMLInputElement>;
+// export type InputFormRef = LegacyRef<HTMLInputElement>;
 
 const InputForm: FC<InputFormProps> = forwardRef(
   (
