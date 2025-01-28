@@ -8,10 +8,10 @@ import css from './InputForm.module.css';
 
 interface InputFormProps {
   children: React.ReactNode;
-  error?: boolean;
-  valueInput?: string;
   type?: string;
   placeholder?: string;
+  error?: boolean;
+  valueInput?: string;
   iconEye?: boolean;
   addClass?: string;
 }

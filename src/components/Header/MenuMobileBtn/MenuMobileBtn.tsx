@@ -7,7 +7,7 @@ import { SvgIcon } from '../../../helpers/SvgIcon.tsx';
 import css from './MenuMobileBtn.module.css';
 
 interface MenuMobileBtnProps {
-  openMenu: () => void;
+  openMenu?: () => void;
   isLight?: boolean;
 }
 

@@ -1,6 +1,6 @@
 import css from './NewsPage.module.css';
 const NewsPage = () => {
-  return <div>NewsPage</div>;
+  return <div className={css.newsPage}>NewsPage</div>;
 };
 
 export default NewsPage;
