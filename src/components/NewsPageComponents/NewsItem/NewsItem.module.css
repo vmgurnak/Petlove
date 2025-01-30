@@ -1,0 +1,17 @@
+.newsItem {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  width: 335px;
+  height: 379px;
+
+  @media (min-width: 768px) {
+    width: 340px;
+    height: 476px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 361px;
+    height: 476px;
+  }
+}

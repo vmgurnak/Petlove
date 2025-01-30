@@ -1,0 +1,27 @@
+.newsList {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  height: 2394px;
+  margin-bottom: 44px;
+
+  @media (min-width: 768px) {
+    height: 1492px;
+    margin-bottom: 60px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 24px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 992px;
+    row-gap: 40px;
+    column-gap: 34px;
+  }
+}

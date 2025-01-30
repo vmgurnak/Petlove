@@ -1,3 +1,47 @@
 .newsPage {
+  height: 2766px;
+
+  padding: 24px 0 80px;
+
+  @media (min-width: 768px) {
+    height: 1941px;
+
+    padding: 32px 0 80px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 1468px;
+    padding: 32px 32px 80px;
+  }
+}
+
+.header {
+  margin-bottom: 50px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 91px;
+  }
+}
+
+.titleSearchWrap {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 60px;
+  }
+}
+
+.title {
 }

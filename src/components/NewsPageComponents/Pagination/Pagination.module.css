@@ -1,0 +1,12 @@
+.pagination {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  height: 40px;
+
+  @media (min-width: 768px) {
+    width: 446px;
+    height: 44px;
+    margin: 0 auto;
+  }
+}
