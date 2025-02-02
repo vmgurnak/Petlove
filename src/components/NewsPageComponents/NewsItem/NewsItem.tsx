@@ -5,11 +5,13 @@ const NewsItem = () => {
   return (
     <div className={css.newsItem}>
       <img className={css.neswImg} src="" alt="" />
-      <h3 className={css.newsTitle}>NewsItem</h3>
+      <h3 className={css.newsTitle}>On Pets, Moral Logic and Love</h3>
       <p className={css.newsText}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nisi.
+        In January, I fell in love with someone. It was the last thing I’d
+        expect and caught me completely off guard. He has sandy blond hair with
+        flecks of gray and gorgeous, sad eyes.
       </p>
-      <div>
+      <div className={css.wrapDateLink}>
         <span className={css.newsDate}>Date</span>
         <Link className={css.newsLink} to="/">
           Read more
