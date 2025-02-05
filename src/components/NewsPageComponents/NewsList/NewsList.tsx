@@ -1,17 +1,27 @@
 import NewsItem from '../NewsItem/NewsItem';
+import { useSelector } from 'react-redux';
+
+import { selectNews } from '../../../redux/news/slice';
+
 import css from './NewsList.module.css';
 
 const NewsList = () => {
-  const news = [1, 1, 1, 1, 1, 1];
+  const news = useSelector(selectNews);
+  const newsList = news.results;
 
   return (
-    <ul className={css.newsList}>
-      {news.map((item, index) => (
-        <li className={css.newsItem} key={index}>
-          <NewsItem />
-        </li>
-      ))}
-    </ul>
+    <div>
+      {Array.isArray(newsList) && newsList.length > 0 && (
+        <ul className={css.newsList}>
+          {newsList.map((newsItem) => (
+            <li className={css.newsItem} key={newsItem._id}>
+              <NewsItem newsItem={newsItem} />
+            </li>
+          ))}
+        </ul>
+      )}
+      );
+    </div>
   );
 };
 

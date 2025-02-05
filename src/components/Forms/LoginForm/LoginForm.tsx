@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from 'react';
 
 import InputForm from '../InputForm/InputForm.tsx';
 import Title from '../../Title/Title';
@@ -8,7 +9,7 @@ import { loginFormValidation } from '../../../Validation/loginFormValidation.ts'
 import css from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,

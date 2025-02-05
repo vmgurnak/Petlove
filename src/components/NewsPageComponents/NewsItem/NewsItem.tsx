@@ -1,19 +1,29 @@
 import { Link } from 'react-router-dom';
 
+import { FC } from 'react';
+
+interface INewsItem {
+  _id: string;
+  imgUrl: string;
+  title: string;
+  text: string;
+  date: string;
+  url: string;
+  id: string;
+}
+
 import css from './NewsItem.module.css';
-const NewsItem = () => {
+const NewsItem = ({ newsItem }) => {
+  const { imgUrl, title, text, date, url } = newsItem;
+
   return (
     <div className={css.newsItem}>
-      <img className={css.neswImg} src="" alt="" />
-      <h3 className={css.newsTitle}>On Pets, Moral Logic and Love</h3>
-      <p className={css.newsText}>
-        In January, I fell in love with someone. It was the last thing I’d
-        expect and caught me completely off guard. He has sandy blond hair with
-        flecks of gray and gorgeous, sad eyes.
-      </p>
+      <img className={css.neswImg} src={imgUrl} alt={title} />
+      <h3 className={css.newsTitle}>{title}</h3>
+      <p className={css.newsText}>{text}</p>
       <div className={css.wrapDateLink}>
-        <span className={css.newsDate}>Date</span>
-        <Link className={css.newsLink} to="/">
+        <span className={css.newsDate}>{date}</span>
+        <Link className={css.newsLink} to={url}>
           Read more
         </Link>
       </div>
