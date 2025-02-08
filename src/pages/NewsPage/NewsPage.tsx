@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import Header from '../../components/Header/Header';
 import NewsList from '../../components/NewsPageComponents/NewsList/NewsList';
 import Pagination from '../../components/NewsPageComponents/Pagination/Pagination';
@@ -11,7 +11,7 @@ import { fetchNewsRequest } from '../../redux/news/operations';
 import css from './NewsPage.module.css';
 
 const NewsPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchNewsRequest());

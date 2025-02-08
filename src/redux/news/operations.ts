@@ -7,7 +7,7 @@ export const fetchNewsRequest = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       return await requestNews();
-    } catch (error: any) {
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { FC } from 'react';
 
-interface INewsItem {
+export interface INewsItem {
   _id: string;
   imgUrl: string;
   title: string;
@@ -12,8 +12,12 @@ interface INewsItem {
   id: string;
 }
 
+export interface INewsItemProps {
+  newsItem: INewsItem;
+}
+
 import css from './NewsItem.module.css';
-const NewsItem = ({ newsItem }) => {
+const NewsItem: FC<INewsItemProps> = ({ newsItem }) => {
   const { imgUrl, title, text, date, url } = newsItem;
 
   return (

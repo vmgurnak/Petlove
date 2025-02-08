@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FC } from 'react';
@@ -8,18 +9,24 @@ import { loginFormValidation } from '../../../Validation/loginFormValidation.ts'
 
 import css from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button.tsx';
 
 const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid, isDirty },
     reset,
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(loginFormValidation),
   });
+
+  const disabled = !isValid || !isDirty;
+  const disabledMemo = useMemo(() => disabled, [disabled]);
+
+  console.log(disabledMemo);
 
   const onSubmit = (data: object) => {
     console.log(data);
@@ -64,9 +71,13 @@ const LoginForm: FC = () => {
               <p className={css.error}>{errors.password.message}</p>
             )}
           </InputForm>
-          <button className={css.btn} type="submit">
+          {/* <button className={css.btn} type="submit">
             Log in
-          </button>
+          </button> */}
+          <Button type="submit" disabled={disabledMemo} data-name="button">
+            Log in
+          </Button>
+
           <p className={css.textLink}>
             Don’t have an account?
             <Link className={css.link} to="/register">

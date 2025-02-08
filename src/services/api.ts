@@ -15,7 +15,7 @@ export const requestNews = async <T>(
     },
   };
 
-  const response = await axios.get(`${BASE_URL}/news`, config);
+  const response: { data: T } = await axios.get(`${BASE_URL}/news`, config);
 
   return response.data;
 };

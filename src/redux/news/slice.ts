@@ -17,7 +17,7 @@ interface INewsState {
 }
 
 const initialState: INewsState = {
-  news: [],
+  news: { page: 1, perPage: 6, results: [], totalPages: 0 },
   loading: false,
   error: false,
 };
@@ -31,13 +31,10 @@ export const newsSlice = createSlice({
         state.loading = true;
         state.error = false;
       })
-      .addCase(
-        fetchNewsRequest.fulfilled,
-        (state, action: PayloadAction<object[]>) => {
-          state.news = action.payload;
-          state.loading = false;
-        }
-      )
+      .addCase(fetchNewsRequest.fulfilled, (state, action) => {
+        state.news = action.payload;
+        state.loading = false;
+      })
       .addCase(fetchNewsRequest.rejected, (state) => {
         state.loading = false;
         state.error = true;
