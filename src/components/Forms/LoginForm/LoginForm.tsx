@@ -1,15 +1,18 @@
 import { useMemo } from 'react';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FC } from 'react';
 
 import InputForm from '../InputForm/InputForm.tsx';
 import Title from '../../Title/Title';
+import Button from '../Button/Button.tsx';
+
+import { useAppDispatch } from '../../../redux/hooks.ts';
+import { apiLogin } from '../../../redux/auth/operations.ts';
 import { loginFormValidation } from '../../../Validation/loginFormValidation.ts';
 
 import css from './LoginForm.module.css';
-import { Link } from 'react-router-dom';
-import Button from '../Button/Button.tsx';
 
 const LoginForm: FC = () => {
   const {
@@ -23,6 +26,8 @@ const LoginForm: FC = () => {
     resolver: yupResolver(loginFormValidation),
   });
 
+  const dispatch = useAppDispatch();
+
   const disabled = !isValid || !isDirty;
   const disabledMemo = useMemo(() => disabled, [disabled]);
 
@@ -30,6 +35,7 @@ const LoginForm: FC = () => {
 
   const onSubmit = (data: object) => {
     console.log(data);
+    dispatch(apiLogin(data));
     reset();
   };
 
@@ -71,10 +77,7 @@ const LoginForm: FC = () => {
               <p className={css.error}>{errors.password.message}</p>
             )}
           </InputForm>
-          {/* <button className={css.btn} type="submit">
-            Log in
-          </button> */}
-          <Button type="submit" disabled={disabledMemo} data-name="button">
+          <Button type="submit" disabled={disabledMemo}>
             Log in
           </Button>
 

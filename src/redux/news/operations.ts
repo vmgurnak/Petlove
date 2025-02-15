@@ -6,7 +6,8 @@ export const fetchNewsRequest = createAsyncThunk(
   'fetchNewsRequest',
   async (_, thunkAPI) => {
     try {
-      return await requestNews();
+      const response = await requestNews();
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

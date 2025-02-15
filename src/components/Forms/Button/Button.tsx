@@ -8,7 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   active?: boolean;
   [key: string]: unknown;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({

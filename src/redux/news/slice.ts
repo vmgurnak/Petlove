@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+// import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { fetchNewsRequest } from './operations';
 
@@ -12,35 +12,37 @@ interface INews {
 
 interface INewsState {
   news: INews;
-  loading: boolean;
-  error: boolean;
+  isLoading: boolean;
+  isError: boolean;
 }
 
 const initialState: INewsState = {
   news: { page: 1, perPage: 6, results: [], totalPages: 0 },
-  loading: false,
-  error: false,
+  isLoading: false,
+  isError: false,
 };
 
-export const newsSlice = createSlice({
+const newsSlice = createSlice({
   name: 'news',
-  initialState: initialState,
+  initialState,
   extraReducers: (builder) =>
     builder
       .addCase(fetchNewsRequest.pending, (state) => {
-        state.loading = true;
-        state.error = false;
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(fetchNewsRequest.fulfilled, (state, action) => {
         state.news = action.payload;
-        state.loading = false;
+        state.isLoading = false;
       })
       .addCase(fetchNewsRequest.rejected, (state) => {
-        state.loading = false;
-        state.error = true;
+        state.isLoading = false;
+        state.isError = true;
       }),
 });
 
 export const selectNews = (state: RootState) => state.news.news;
+export const selectIsLoading = (state: RootState) => state.news.isLoading;
+export const selectIsError = (state: RootState) => state.news.isError;
 
 export const newsReducer = newsSlice.reducer;

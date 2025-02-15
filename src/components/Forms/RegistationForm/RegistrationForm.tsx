@@ -1,27 +1,51 @@
+import { FC, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import InputForm from '../InputForm/InputForm.tsx';
-import Title from '../../Title/Title';
+import Title from '../../Title/Title.tsx';
+import Button from '../Button/Button.tsx';
+
+import { useAppDispatch } from '../../../redux/hooks.ts';
+import { apiRegister } from '../../../redux/auth/operations.ts';
 import { regFormValidation } from '../../../Validation/regFormValidation.ts';
 
 import css from './RegistrationForm.module.css';
-import { Link } from 'react-router-dom';
 
-const RegistrationForm = () => {
+const RegistrationForm: FC = () => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid, isDirty },
     reset,
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(regFormValidation),
   });
 
-  const onSubmit = (data: object) => {
+  const dispatch = useAppDispatch();
+
+  const disabled = !isValid || !isDirty;
+  const disabledMemo = useMemo(() => disabled, [disabled]);
+
+  console.log(disabledMemo);
+
+  const onSubmit = (data: {
+    name: string;
+    email: string;
+    password: string;
+    repeatPassword: string;
+  }) => {
     console.log(data);
+    dispatch(
+      apiRegister({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      })
+    );
     reset();
   };
 
@@ -83,9 +107,9 @@ const RegistrationForm = () => {
               <p className={css.error}>{errors.repeatPassword.message}</p>
             )}
           </InputForm>
-          <button className={css.btn} type="submit">
-            Registration
-          </button>
+          <Button type="submit" disabled={disabledMemo}>
+            Log in
+          </Button>
           <p className={css.textLink}>
             Already have an account?
             <Link className={css.link} to="/login">
