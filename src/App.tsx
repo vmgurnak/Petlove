@@ -1,7 +1,13 @@
+import toast from 'react-hot-toast';
 import { Route, Routes } from 'react-router';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 
+import RestrictedRoute from './RestrictedRoute';
+import PrivateRoute from './PrivateRoute';
 import Layout from './components/Layout/Layout';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { apiRefreshUser } from '../src/redux/auth/operations';
+import { selectIsRefreshing } from '../src/redux/auth/slice';
 
 import './App.css';
 
@@ -16,16 +22,39 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage'));
 
 function App() {
-  return (
+  const dispatch = useAppDispatch();
+  const isRefreshing = useAppSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(apiRefreshUser())
+      .unwrap()
+      .then(() => {
+        toast('Login successful');
+      })
+      .catch((error) => toast.error(error.response.data.message));
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <p>Refreshing user please wait...</p>
+  ) : (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices" element={<NoticesPage />} />
         <Route path="/friends" element={<FriendsPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/register"
+          element={<RestrictedRoute component={<RegistrationPage />} />}
+        />
+        <Route
+          path="/login"
+          element={<RestrictedRoute component={<LoginPage />} />}
+        />
+        <Route
+          path="/profile"
+          element={<PrivateRoute component={<ProfilePage />} />}
+        />
       </Routes>
     </Layout>
   );

@@ -4,7 +4,7 @@ const BASE_URL = 'https://petlove.b.goit.study/api';
 
 axios.defaults.baseURL = BASE_URL;
 
-const setAuthHeader = (token: string) => {
+export const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -47,13 +47,18 @@ export const requestLogin = async <T>(user: {
 }): Promise<T> => {
   const response = await axios.post('/users/signin', user);
   setAuthHeader(response.data.token);
-
   return response.data;
 };
 
 export const requestLogout = async <T>(): Promise<T> => {
   const response = await axios.post('/users/signout');
   clearAuthHeader();
+
+  return response.data;
+};
+
+export const requestRefreshUser = async () => {
+  const response = await axios.get('/users/current');
 
   return response.data;
 };

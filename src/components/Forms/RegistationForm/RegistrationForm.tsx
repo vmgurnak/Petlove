@@ -1,3 +1,5 @@
+import toast from 'react-hot-toast';
+
 import { FC, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -32,12 +34,14 @@ const RegistrationForm: FC = () => {
 
   console.log(disabledMemo);
 
-  const onSubmit = (data: {
+  interface dataRegister {
     name: string;
     email: string;
     password: string;
     repeatPassword: string;
-  }) => {
+  }
+
+  const onSubmit = (data: dataRegister) => {
     console.log(data);
     dispatch(
       apiRegister({
@@ -45,7 +49,13 @@ const RegistrationForm: FC = () => {
         email: data.email,
         password: data.password,
       })
-    );
+    )
+      .unwrap()
+      .then(() => toast('Registration successful'))
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data.message);
+      });
     reset();
   };
 

@@ -1,3 +1,5 @@
+import toast from 'react-hot-toast';
+
 import { useMemo } from 'react';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
@@ -33,9 +35,19 @@ const LoginForm: FC = () => {
 
   console.log(disabledMemo);
 
-  const onSubmit = (data: object) => {
+  interface userLogin {
+    email: string;
+    password: string;
+  }
+
+  const onSubmit = (data: userLogin) => {
     console.log(data);
-    dispatch(apiLogin(data));
+    dispatch(apiLogin(data))
+      .unwrap()
+      .then(() => {
+        toast('Login successful');
+      })
+      .catch((error) => toast.error(error.response.data.message));
     reset();
   };
 

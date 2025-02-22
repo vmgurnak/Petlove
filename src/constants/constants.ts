@@ -30,6 +30,8 @@ export const ICONS = {
   eyeOff: `${icons}#eye-off`,
   cross: `${icons}#cross`,
   check: `${icons}#check`,
+  search: `${icons}#search`,
+  crossSearch: `${icons}#cross-search`,
 };
 
 export const IMAGES_HOME = {

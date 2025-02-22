@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { fetchNewsRequest } from './operations';
+import { apiLogout } from '../auth/operations';
 
 interface INews {
   page: number;
@@ -39,6 +40,13 @@ const newsSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
       }),
+  // .addCase(apiLogout.fulfilled, (state) => {
+  //   state.news = initialState.news;
+  //   state.isLoading = false;
+  //   state.isError = false;
+
+  //   // return initialState;
+  // }),
 });
 
 export const selectNews = (state: RootState) => state.news.news;

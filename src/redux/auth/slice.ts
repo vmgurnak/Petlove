@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { apiRegister, apiLogin, apiLogout } from './operations';
+import { apiRegister, apiLogin, apiLogout, apiRefreshUser } from './operations';
 import { RootState } from '../store';
 
 interface IAuthState {
@@ -9,6 +9,7 @@ interface IAuthState {
   isLogged: boolean;
   isLoading: boolean;
   isError: boolean;
+  isRefreshing: boolean;
 }
 
 const initialState: IAuthState = {
@@ -18,6 +19,7 @@ const initialState: IAuthState = {
   isLogged: false,
   isLoading: false,
   isError: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -70,6 +72,21 @@ const authSlice = createSlice({
       .addCase(apiLogout.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
+      })
+      .addCase(apiRefreshUser.pending, (state) => {
+        state.isRefreshing = true;
+        state.isError = false;
+      })
+      .addCase(apiRefreshUser.fulfilled, (state, action) => {
+        state.name = action.payload.name;
+        state.email = action.payload.email;
+        state.token = action.payload.token;
+        state.isRefreshing = false;
+        state.isLogged = true;
+      })
+      .addCase(apiRefreshUser.rejected, (state) => {
+        state.isRefreshing = false;
+        state.isError = true;
       });
   },
 });
@@ -82,3 +99,4 @@ export const selectToken = (state: RootState) => state.auth.token;
 export const selectIsLogged = (state: RootState) => state.auth.isLogged;
 export const selectIsLoading = (state: RootState) => state.auth.isLoading;
 export const selectIsError = (state: RootState) => state.auth.isError;
+export const selectIsRefreshing = (state: RootState) => state.auth.isRefreshing;

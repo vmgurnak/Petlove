@@ -1,3 +1,5 @@
+import toast from 'react-hot-toast';
+
 import NewsItem from '../NewsItem/NewsItem';
 import { useAppSelector } from '../../../redux/hooks';
 
@@ -7,9 +9,15 @@ import { INewsItem } from '../NewsItem/NewsItem';
 
 import css from './NewsList.module.css';
 
-const NewsList = (): JSX.Element => {
+const NewsList = () => {
   const news = useAppSelector(selectNews);
   const newsList = news.results as INewsItem[];
+
+  // if (newsList.length === 0) {
+  //   toast(
+  //     'Sorry, there are no news matching your search query. Please try again'
+  //   );
+  // }
 
   return (
     <div>
@@ -22,7 +30,6 @@ const NewsList = (): JSX.Element => {
           ))}
         </ul>
       )}
-      );
     </div>
   );
 };
