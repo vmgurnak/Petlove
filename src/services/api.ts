@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
 };
 
 export const requestNews = async <T>(
-  keyword?: string,
+  keyword?: string | null,
   page?: number,
   limit?: number
 ): Promise<T> => {

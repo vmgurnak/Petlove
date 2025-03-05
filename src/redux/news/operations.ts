@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { requestNews } from '../../services/api';
 
 interface IFetchNewsRequestArgs {
-  keyword?: string;
+  keyword?: string | null;
   page?: number;
   limit?: number;
 }
@@ -15,7 +15,7 @@ export const fetchNewsRequest = createAsyncThunk(
       const response = await requestNews(keyword, page, limit);
       return response;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

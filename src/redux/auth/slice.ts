@@ -22,6 +22,16 @@ const initialState: IAuthState = {
   isRefreshing: false,
 };
 
+const handlePending = (state: IAuthState) => {
+  state.isLoading = true;
+  state.isError = false;
+};
+
+const handleRejected = (state: IAuthState) => {
+  state.isLoading = false;
+  state.isError = true;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -68,6 +78,8 @@ const authSlice = createSlice({
         state.token = null;
         state.isLogged = false;
         state.isLoading = false;
+
+        // return initialState;
       })
       .addCase(apiLogout.rejected, (state) => {
         state.isLoading = false;

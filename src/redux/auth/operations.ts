@@ -13,6 +13,11 @@ interface userRegister {
   password: string;
 }
 
+interface userLogin {
+  email: string;
+  password: string;
+}
+
 interface IAuthState {
   name: string | null;
   email: string | null;
@@ -34,11 +39,6 @@ export const apiRegister = createAsyncThunk(
     }
   }
 );
-
-interface userLogin {
-  email: string;
-  password: string;
-}
 
 export const apiLogin = createAsyncThunk(
   'auth/login',
@@ -80,6 +80,9 @@ export const apiRefreshUser = createAsyncThunk(
     condition(_, thunkAPI) {
       const reduxState = thunkAPI.getState() as { auth: IAuthState };
       return reduxState.auth.token !== null;
+
+      // if (!reduxState.auth.token) return false;
+      // return true;
     },
   }
 );

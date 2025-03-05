@@ -24,7 +24,7 @@ const NewsList = () => {
       {Array.isArray(newsList) && newsList.length > 0 && (
         <ul className={css.newsList}>
           {newsList.map((item) => (
-            <li className={css.newsItem}>
+            <li className={css.newsItem} key={item._id}>
               <NewsItem newsItem={item} />
             </li>
           ))}

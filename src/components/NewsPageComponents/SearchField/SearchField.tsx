@@ -7,14 +7,24 @@ import { SvgIcon } from '../../../helpers/SvgIcon';
 import { ICONS } from '../../../constants/constants';
 
 import css from './SearchField.module.css';
+import { SetURLSearchParams } from 'react-router-dom';
 
 interface SearchFieldProps {
+  searchQuery?: string | null;
+  setSearchParams: SetURLSearchParams;
+  onSetSearchParams: (query: string) => void;
   placeholder: string;
   addClass?: string;
 }
 
-const SearchField: FC<SearchFieldProps> = ({ placeholder, addClass }) => {
-  const [valueFilter, setValueFilter] = useState('');
+const SearchField: FC<SearchFieldProps> = ({
+  searchQuery,
+  setSearchParams,
+  onSetSearchParams,
+  placeholder,
+  addClass,
+}) => {
+  const [valueFilter, setValueFilter] = useState<string>(searchQuery ?? '');
 
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
@@ -22,8 +32,7 @@ const SearchField: FC<SearchFieldProps> = ({ placeholder, addClass }) => {
       toast('Please enter your request.');
       return;
     }
-    console.log(valueFilter);
-    setValueFilter('');
+    onSetSearchParams(valueFilter);
   };
 
   return (
@@ -42,54 +51,18 @@ const SearchField: FC<SearchFieldProps> = ({ placeholder, addClass }) => {
       <button className={css.searchBtn} type="submit">
         <SvgIcon addClass={css.iconSearch} icon={ICONS.search} />
       </button>
+      {valueFilter && (
+        <button
+          onClick={() => {
+            setValueFilter('');
+            setSearchParams({});
+          }}
+        >
+          <SvgIcon addClass={css.iconCross} icon={ICONS.crossSearch} />
+        </button>
+      )}
     </form>
   );
 };
 
 export default SearchField;
-
-// const SearchBox = ({ filter, setFilter }) => {
-//   // function change state filter
-//   const onChange = (evt) => setFilter(evt.target.value);
-
-//   return (
-//     <div className={css.searchBoxWrap}>
-//       <p className={css.searchBoxTitle}>Find contacts by name</p>
-//       <input
-//         className={css.searchBoxInput}
-//         type="text"
-//         value={filter}
-//         onChange={onChange}
-//       />
-//     </div>
-//   );
-// };
-
-// const SearchForm = ({ onSetSearchParams, searchQuery }) => {
-//   const { t } = useTranslation();
-//   const initialValues = { query: searchQuery ?? '' };
-//   // const initialValues = { query: '' };
-
-//   const handlerSubmit = (values) => {
-//     if (!values.query.trim()) {
-//       toast('Please enter your request.');
-//       return;
-//     }
-//     onSetSearchParams(values.query);
-//     values.query = '';
-//   };
-
-//   return (
-//     <Formik initialValues={initialValues} onSubmit={handlerSubmit}>
-//       <Form className={css.MoviesPageForm} autoComplete="off">
-//         <Field
-//           className={css.MoviesPageInput}
-//           name="query"
-//           type="text"
-//           placeholder={t('searchPlaceholder')}
-//         />
-//         <Button title={t('searchButton')} addClass={css.MoviesPageBtn} />
-//       </Form>
-//     </Formik>
-//   );
-// };
