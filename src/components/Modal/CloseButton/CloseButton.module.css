@@ -1,0 +1,30 @@
+.btnClose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 2px solid var(--gray);
+  border-radius: 50%;
+  color: var(--light-gray);
+
+  transition: color var(--transition-delay) var(--transition),
+    background-color var(--transition-delay) var(--transition);
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--dark-gray);
+}
+
+.iconBtnClose {
+  /* stroke: var(--dark); */
+  width: 24px;
+  height: 24px;
+  color: inherit;
+  fill: currentColor;
+}

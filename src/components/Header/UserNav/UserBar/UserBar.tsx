@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { SvgIcon } from '../../../../helpers/SvgIcon';
+import { SvgIcon } from '../../../REUSABLE/SvgIcon.tsx';
 import { ICONS } from '../../../../constants/constants';
 
 import { useAppSelector } from '../../../../redux/hooks.ts';

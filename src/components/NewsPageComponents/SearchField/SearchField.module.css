@@ -69,6 +69,8 @@
   width: 18px;
   height: 18px;
 
+  stroke: var(--dark);
+
   @media (min-width: 768px) {
     top: 15px;
   }

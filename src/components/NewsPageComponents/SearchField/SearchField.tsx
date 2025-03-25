@@ -2,12 +2,12 @@ import clsx from 'clsx';
 import toast from 'react-hot-toast';
 
 import { FC, useState } from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
 
-import { SvgIcon } from '../../../helpers/SvgIcon';
+import { SvgIcon } from '../../REUSABLE/SvgIcon';
 import { ICONS } from '../../../constants/constants';
 
 import css from './SearchField.module.css';
-import { SetURLSearchParams } from 'react-router-dom';
 
 interface SearchFieldProps {
   searchQuery?: string | null;

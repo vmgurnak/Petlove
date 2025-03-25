@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FC } from 'react';
 
 import { ICONS } from '../../../constants/constants.ts';
-import { SvgIcon } from '../../../helpers/SvgIcon.tsx';
+import { SvgIcon } from '../../REUSABLE/SvgIcon.tsx';
 
 import css from './MenuMobileBtn.module.css';
 

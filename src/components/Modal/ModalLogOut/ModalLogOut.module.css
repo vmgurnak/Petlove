@@ -1,0 +1,54 @@
+.modalLogOut {
+  width: 335px;
+  height: 270px;
+  padding: 40px 28px;
+  background-color: var(--white);
+  border-radius: 30px;
+
+  @media (min-width: 768px) {
+    width: 448px;
+    height: 364px;
+    padding: 80px;
+  }
+}
+
+.catImg {
+  display: block;
+  width: 80px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 28px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+}
+
+.buttonWrap {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  height: 42px;
+
+  @media (min-width: 768px) {
+    height: 48px;
+  }
+}
+
+.button {
+  height: 42px;
+}
+
+.buttonWrap .btnCancel {
+  background-color: rgba(38, 38, 38, 0.05);
+  color: var(--dark);
+}

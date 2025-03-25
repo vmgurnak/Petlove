@@ -55,6 +55,7 @@ function App() {
           path="/profile"
           element={<PrivateRoute component={<ProfilePage />} />}
         />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </Layout>
   );

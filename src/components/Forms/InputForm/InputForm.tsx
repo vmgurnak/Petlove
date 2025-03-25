@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC, forwardRef, LegacyRef, useState } from 'react';
 
-import { SvgIcon } from '../../../helpers/SvgIcon';
+import { SvgIcon } from '../../REUSABLE/SvgIcon';
 import { ICONS } from '../../../constants/constants';
 
 import css from './InputForm.module.css';

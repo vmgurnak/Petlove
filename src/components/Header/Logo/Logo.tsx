@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FC } from 'react';
 import clsx from 'clsx';
 
-import { SvgIcon } from '../../../helpers/SvgIcon.tsx';
+import { SvgIcon } from '../../REUSABLE/SvgIcon.tsx';
 import { ICONS } from '../../../constants/constants.ts';
 
 import css from './Logo.module.css';

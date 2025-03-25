@@ -1,0 +1,7 @@
+.modalAttention {
+  width: 335px;
+  height: 394px;
+  padding: 40px 20px;
+  background-color: var(--red);
+  border-radius: 30px;
+}

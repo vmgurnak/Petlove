@@ -21,6 +21,9 @@ import regImgTab2x from '../assets/RegPageImg/registration-img-tab2x.jpg';
 import regImgPC from '../assets/RegPageImg/registration-img-pc1x.jpg';
 import regImgPC2x from '../assets/RegPageImg/registration-img-pc2x.jpg';
 
+import catImgMob1x from '../assets/ModalImg/modal-cat-img1x.jpg';
+import catImgMob2x from '../assets/ModalImg/modal-cat-img2x.jpg';
+
 export const ICONS = {
   heart: `${icons}#heart`,
   heartWhite: `${icons}#heart-white`,
@@ -32,6 +35,7 @@ export const ICONS = {
   check: `${icons}#check`,
   search: `${icons}#search`,
   crossSearch: `${icons}#cross-search`,
+  modalClose: `${icons}#modal-close`,
 };
 
 export const IMAGES_HOME = {
@@ -59,4 +63,9 @@ export const IMAGES_REG = {
   tab2x: regImgTab2x,
   pc1x: regImgPC,
   pc2x: regImgPC2x,
+};
+
+export const IMAGES_MODAL = {
+  catImgMob1x: catImgMob1x,
+  catImgMob2x: catImgMob2x,
 };

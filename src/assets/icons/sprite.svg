@@ -23,12 +23,16 @@
          <path d="M17.4163 4.58333L4.58301 17.4167M4.58305 4.58333L17.4163 17.4167" stroke="#EF2447" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </symbol>
       <symbol id="cross-search" viewBox="0 0 18 18" fill="none">
-         <path d="M14.25 3.75L3.75 14.25M3.75003 3.75L14.25 14.25" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+         <path d="M14.25 3.75L3.75 14.25M3.75003 3.75L14.25 14.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="modal-close" viewBox="0 0 24 24" fill="none">
+         <path d="M18 6L6 18" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+         <path d="M6 6L18 18" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </symbol>
       <symbol id="check" viewBox="0 0 22 22" fill="none">
          <path d="M18.3337 6.41667L8.25042 16.5L3.66699 11.9167" stroke="#08AA83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </symbol>
-      <symbol id="search" viewBox="0 0 18 18" fill="none">
+      <symbol id="search" fill="none">
          <path d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
          <path d="M15.7508 15.75L12.4883 12.4875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </symbol>

@@ -26,7 +26,7 @@ const NewsPage = () => {
       .unwrap()
       .then((response) => {
         console.log(response);
-        if (response === 0) {
+        if (response.results.length === 0) {
           toast(
             'Sorry, there are no news matching your search query. Please try again'
           );

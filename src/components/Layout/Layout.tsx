@@ -1,11 +1,16 @@
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 
-import Loader from '../../helpers/Loader/Loader';
+import { useAppSelector } from '../../../src/redux/hooks.ts';
+import Modal from '../Modal/Modal.tsx';
+import Loader from '../REUSABLE/Loader/Loader.tsx';
+import { selectModalIsOpen } from '../../../src/redux/modal/selecrots.ts';
 
 import css from './Layout.module.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  const modalIsOpen = useAppSelector(selectModalIsOpen);
+
   return (
     <div className={css.layout}>
       <Suspense fallback={<Loader />}>
@@ -21,6 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           },
         }}
       />
+      {modalIsOpen && <Modal />}
     </div>
   );
 };
