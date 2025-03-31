@@ -82,8 +82,13 @@ const authSlice = createSlice({
         // return initialState;
       })
       .addCase(apiLogout.rejected, (state) => {
+        state.name = null;
+        state.email = null;
+        state.token = null;
+        state.isLogged = false;
         state.isLoading = false;
         state.isError = true;
+        // return { ...initialState, isError: true };
       })
       .addCase(apiRefreshUser.pending, (state) => {
         state.isRefreshing = true;

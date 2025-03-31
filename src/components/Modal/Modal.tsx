@@ -72,7 +72,7 @@ const Modal: FC<IModalProps> = ({ children }) => {
     >
       <div className={css.modal}>
         <CloseButton addClass={css.btnClose} onCloseModal={onCloseModal} />
-        {modalIsLogOut && <ModalLogOut />}
+        {modalIsLogOut && <ModalLogOut onCloseModal={onCloseModal} />}
         {children}
       </div>
     </div>

@@ -24,6 +24,13 @@ import regImgPC2x from '../assets/RegPageImg/registration-img-pc2x.jpg';
 import catImgMob1x from '../assets/ModalImg/modal-cat-img1x.jpg';
 import catImgMob2x from '../assets/ModalImg/modal-cat-img2x.jpg';
 
+import loaderImgMob1x from '../assets/LoaderImg/loader-img-mob1x.webp';
+import loaderImgMob2x from '../assets/LoaderImg/loader-img-mob2x.webp';
+import loaderImgTab1x from '../assets/LoaderImg/loader-img-tab1x.webp';
+import loaderImgTab2x from '../assets/LoaderImg/loader-img-tab2x.webp';
+import loaderImgPC1x from '../assets/LoaderImg/loader-img-pc1x.webp';
+import loaderImgPC2x from '../assets/LoaderImg/loader-img-pc2x.webp';
+
 export const ICONS = {
   heart: `${icons}#heart`,
   heartWhite: `${icons}#heart-white`,
@@ -68,4 +75,13 @@ export const IMAGES_REG = {
 export const IMAGES_MODAL = {
   catImgMob1x: catImgMob1x,
   catImgMob2x: catImgMob2x,
+};
+
+export const IMAGES_LOADER = {
+  mob1x: loaderImgMob1x,
+  mob2x: loaderImgMob2x,
+  tab1x: loaderImgTab1x,
+  tab2x: loaderImgTab2x,
+  pc1x: loaderImgPC1x,
+  pc2x: loaderImgPC2x,
 };

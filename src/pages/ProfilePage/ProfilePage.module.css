@@ -1,17 +1,17 @@
 .profilePage {
   height: 2766px;
 
-  padding: 24px 0 80px;
+  padding: 24px 20px 80px;
 
   @media (min-width: 768px) {
     height: 1941px;
 
-    padding: 32px 0 80px;
+    padding: 32px 32px 80px;
   }
 
   @media (min-width: 1280px) {
     height: 1468px;
-    padding: 32px 32px 80px;
+    padding: 32px 64px 80px;
   }
 }
 
