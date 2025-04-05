@@ -41,7 +41,6 @@ const LoginForm: FC = () => {
   }
 
   const onSubmit = (data: userLogin) => {
-    console.log(data);
     dispatch(apiLogin(data))
       .unwrap()
       .then(() => {

@@ -1,18 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { requestNews } from '../../services/api';
+import { INewsParams, INewsResponse } from '../../types.ts';
 
-interface IFetchNewsRequestArgs {
-  keyword?: string | null;
-  page?: number;
-  limit?: number;
-}
-
-export const fetchNewsRequest = createAsyncThunk(
+export const fetchNewsRequest = createAsyncThunk<INewsResponse, INewsParams>(
   'fetchNewsRequest',
-  async ({ keyword, page, limit }: IFetchNewsRequestArgs, thunkAPI) => {
+  async (paramsRequest, thunkAPI) => {
     try {
-      const response = await requestNews(keyword, page, limit);
+      const response = await requestNews(paramsRequest);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

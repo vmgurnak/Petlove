@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { useAppDispatch } from '../../redux/hooks';
@@ -12,17 +12,25 @@ import Pagination from '../../components/NewsPageComponents/Pagination/Paginatio
 import SearchField from '../../components/NewsPageComponents/SearchField/SearchField';
 import Title from '../../components/Title/Title';
 
+import { INewsParams } from '../../types.ts';
+
 import css from './NewsPage.module.css';
 
-const NewsPage = () => {
+const NewsPage: FC = () => {
   const dispatch = useAppDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('keyword');
   console.log(searchParams);
   console.log(searchQuery);
 
+  const paramsRequest: INewsParams = {
+    keyword: searchQuery,
+    page: 1,
+    limit: 6,
+  };
+
   useEffect(() => {
-    dispatch(fetchNewsRequest({ keyword: searchQuery, page: 1, limit: 6 }))
+    dispatch(fetchNewsRequest(paramsRequest))
       .unwrap()
       .then((response) => {
         console.log(response);

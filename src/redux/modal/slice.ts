@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IModalState {
   modalIsOpen: boolean;
@@ -18,16 +18,16 @@ export const Modals = createSlice({
   name: 'modals',
   initialState: INITIAL_STATE,
   reducers: {
-    changeModal(state, action) {
+    changeModal(state, action: PayloadAction<boolean>) {
       state.modalIsOpen = action.payload;
     },
-    changeBeforeClose(state, action) {
+    changeBeforeClose(state, action: PayloadAction<boolean>) {
       state.beforeClose = action.payload;
     },
-    changeAfterOpen(state, action) {
+    changeAfterOpen(state, action: PayloadAction<boolean>) {
       state.afterOpen = action.payload;
     },
-    changeModalIsLogOut(state, action) {
+    changeModalIsLogOut(state, action: PayloadAction<boolean>) {
       state.modalIsLogOut = action.payload;
     },
   },

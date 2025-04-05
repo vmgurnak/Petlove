@@ -13,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className={css.layout}>
+      <Loader />
       <Suspense fallback={<Loader />}>
         <main>{children}</main>
       </Suspense>

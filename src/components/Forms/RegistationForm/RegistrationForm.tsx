@@ -34,15 +34,14 @@ const RegistrationForm: FC = () => {
 
   console.log(disabledMemo);
 
-  interface dataRegister {
+  interface IDataRegister {
     name: string;
     email: string;
     password: string;
     repeatPassword: string;
   }
 
-  const onSubmit = (data: dataRegister) => {
-    console.log(data);
+  const onSubmit = (data: IDataRegister) => {
     dispatch(
       apiRegister({
         name: data.name,

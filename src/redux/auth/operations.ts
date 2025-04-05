@@ -6,31 +6,21 @@ import {
   requestRefreshUser,
   setAuthHeader,
 } from '../../services/api';
+import { RootState } from '../store.ts';
 
-interface userRegister {
-  name: string;
-  email: string;
-  password: string;
-}
+import {
+  ILoginUser,
+  ILoginResponse,
+  IRegisterUser,
+  IRegisterResponse,
+  IRefreshResponse,
+  ILogOutResponse,
+  // IAuthState,
+} from '../../types.ts';
 
-interface userLogin {
-  email: string;
-  password: string;
-}
-
-interface IAuthState {
-  name: string | null;
-  email: string | null;
-  token: string | null;
-  isLogged: boolean;
-  isLoading: boolean;
-  isError: boolean;
-  isRefreshing: boolean;
-}
-
-export const apiRegister = createAsyncThunk(
+export const apiRegister = createAsyncThunk<IRegisterResponse, IRegisterUser>(
   'auth/register',
-  async (user: userRegister, thunkAPI) => {
+  async (user, thunkAPI) => {
     try {
       const response = await requestRegister(user);
       return response;
@@ -40,9 +30,9 @@ export const apiRegister = createAsyncThunk(
   }
 );
 
-export const apiLogin = createAsyncThunk(
+export const apiLogin = createAsyncThunk<ILoginResponse, ILoginUser>(
   'auth/login',
-  async (user: userLogin, thunkAPI) => {
+  async (user, thunkAPI) => {
     try {
       const response = await requestLogin(user);
       return response;
@@ -52,7 +42,7 @@ export const apiLogin = createAsyncThunk(
   }
 );
 
-export const apiLogout = createAsyncThunk(
+export const apiLogout = createAsyncThunk<ILogOutResponse>(
   'auth/logout',
   async (_, thunkAPI) => {
     try {
@@ -64,11 +54,12 @@ export const apiLogout = createAsyncThunk(
   }
 );
 
-export const apiRefreshUser = createAsyncThunk(
+export const apiRefreshUser = createAsyncThunk<IRefreshResponse>(
   'auth/refresh',
   async (_, thunkAPI) => {
     try {
-      const reduxState = thunkAPI.getState() as { auth: IAuthState };
+      // const reduxState = thunkAPI.getState() as { auth: IAuthState };
+      const reduxState = thunkAPI.getState() as RootState;
       setAuthHeader(reduxState.auth.token!);
       const response = await requestRefreshUser();
       return response;
@@ -78,7 +69,8 @@ export const apiRefreshUser = createAsyncThunk(
   },
   {
     condition(_, thunkAPI) {
-      const reduxState = thunkAPI.getState() as { auth: IAuthState };
+      // const reduxState = thunkAPI.getState() as { auth: IAuthState };
+      const reduxState = thunkAPI.getState() as RootState;
       return reduxState.auth.token !== null;
 
       // if (!reduxState.auth.token) return false;
