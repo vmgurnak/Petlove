@@ -30,6 +30,16 @@ export interface ILogOutResponse {
   message: string;
 }
 
+export interface IAuthState {
+  name: string | null;
+  email: string | null;
+  token: string | null;
+  isLogged: boolean;
+  isLoading: boolean;
+  isError: boolean;
+  isRefreshing: boolean;
+}
+
 export interface INewsParams {
   keyword?: string | null;
   page?: number;
@@ -53,12 +63,15 @@ export interface INewsResponse {
   results: INewsItem[];
 }
 
-export interface IAuthState {
-  name: string | null;
-  email: string | null;
-  token: string | null;
-  isLogged: boolean;
+export interface INewsState {
+  news: INewsResponse;
   isLoading: boolean;
   isError: boolean;
-  isRefreshing: boolean;
+}
+
+export interface IModalState {
+  modalIsOpen: boolean;
+  afterOpen: boolean;
+  beforeClose: boolean;
+  modalIsLogOut: boolean;
 }

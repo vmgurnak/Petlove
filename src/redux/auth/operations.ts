@@ -6,7 +6,6 @@ import {
   requestRefreshUser,
   setAuthHeader,
 } from '../../services/api';
-import { RootState } from '../store.ts';
 
 import {
   ILoginUser,
@@ -17,6 +16,8 @@ import {
   ILogOutResponse,
   // IAuthState,
 } from '../../types.ts';
+
+import { RootState } from '../store.ts';
 
 export const apiRegister = createAsyncThunk<IRegisterResponse, IRegisterUser>(
   'auth/register',

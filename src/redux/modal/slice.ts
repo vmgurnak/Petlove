@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface IModalState {
-  modalIsOpen: boolean;
-  afterOpen: boolean;
-  beforeClose: boolean;
-  modalIsLogOut: boolean;
-}
+import { IModalState } from '../../types.ts';
 
 const INITIAL_STATE: IModalState = {
   modalIsOpen: false,

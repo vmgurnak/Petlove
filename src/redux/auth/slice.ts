@@ -1,16 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { apiRegister, apiLogin, apiLogout, apiRefreshUser } from './operations';
 import { RootState } from '../store';
-
-interface IAuthState {
-  name: string | null;
-  email: string | null;
-  token: string | null;
-  isLogged: boolean;
-  isLoading: boolean;
-  isError: boolean;
-  isRefreshing: boolean;
-}
+import {
+  ILoginResponse,
+  IRegisterResponse,
+  IRefreshResponse,
+  IAuthState,
+} from '../../types.ts';
 
 const initialState: IAuthState = {
   name: null,
@@ -41,10 +37,7 @@ const authSlice = createSlice({
       .addCase(apiRegister.pending, handlePending)
       .addCase(
         apiRegister.fulfilled,
-        (
-          state,
-          action: PayloadAction<{ name: string; email: string; token: string }>
-        ) => {
+        (state, action: PayloadAction<IRegisterResponse>) => {
           state.name = action.payload.name;
           state.email = action.payload.email;
           state.token = action.payload.token;
@@ -56,10 +49,7 @@ const authSlice = createSlice({
       .addCase(apiLogin.pending, handlePending)
       .addCase(
         apiLogin.fulfilled,
-        (
-          state,
-          action: PayloadAction<{ name: string; email: string; token: string }>
-        ) => {
+        (state, action: PayloadAction<ILoginResponse>) => {
           state.name = action.payload.name;
           state.email = action.payload.email;
           state.token = action.payload.token;
@@ -99,10 +89,7 @@ const authSlice = createSlice({
       })
       .addCase(
         apiRefreshUser.fulfilled,
-        (
-          state,
-          action: PayloadAction<{ name: string; email: string; token: string }>
-        ) => {
+        (state, action: PayloadAction<IRefreshResponse>) => {
           state.name = action.payload.name;
           state.email = action.payload.email;
           state.token = action.payload.token;
@@ -119,6 +106,7 @@ const authSlice = createSlice({
 
 export const authReducer = authSlice.reducer;
 
+// Selectors auth
 export const selectName = (state: RootState): string | null => state.auth.name;
 export const selectEmail = (state: RootState): string | null =>
   state.auth.email;

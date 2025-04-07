@@ -15,11 +15,11 @@ const BASE_URL = 'https://petlove.b.goit.study/api';
 
 axios.defaults.baseURL = BASE_URL;
 
-export const setAuthHeader = (token: string) => {
+export const setAuthHeader = (token: string): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const clearAuthHeader = () => {
+const clearAuthHeader = (): void => {
   axios.defaults.headers.common.Authorization = '';
 };
 
