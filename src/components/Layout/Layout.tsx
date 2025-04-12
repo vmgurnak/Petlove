@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast';
-import { Suspense } from 'react';
+import { FC, Suspense } from 'react';
 
 import { useAppSelector } from '../../../src/redux/hooks.ts';
 import Modal from '../Modal/Modal.tsx';
@@ -8,12 +8,16 @@ import { selectModalIsOpen } from '../../../src/redux/modal/selecrots.ts';
 
 import css from './Layout.module.css';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+  loadProgress?: number;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
   const modalIsOpen = useAppSelector(selectModalIsOpen);
 
   return (
     <div className={css.layout}>
-      <Loader />
       <Suspense fallback={<Loader />}>
         <main>{children}</main>
       </Suspense>

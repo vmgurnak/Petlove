@@ -88,7 +88,7 @@ input:-webkit-autofill {
 /* ------------BASE STYLES------------ */
 
 body {
-  font-family: 'Manrope';
+  font-family: 'Manrope', Arial;
   font-weight: 500;
   color: var(--dark);
 }

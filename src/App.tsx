@@ -8,9 +8,9 @@ import Layout from './components/Layout/Layout';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { apiRefreshUser } from '../src/redux/auth/operations';
 import { selectIsRefreshing } from '../src/redux/auth/slice';
+import LoaderRefresh from './components/REUSABLE/LoaderRefresh/LoaderRefresh';
 
 import './App.css';
-import LoaderRefresh from './components/REUSABLE/LoaderRefresh/LoaderRefresh';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage'));

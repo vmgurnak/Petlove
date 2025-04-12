@@ -47,6 +47,12 @@
       background-image: url('../../../assets/LoaderImg/loader-img-pc2x.webp');
     }
   }
+}
+
+.loaderLogo {
+  display: flex;
+  align-items: end;
+
   font-weight: 700;
   font-size: 50px;
   line-height: 1;
@@ -58,22 +64,7 @@
   }
 }
 
-.loaderText {
-  display: flex;
-  align-items: end;
-
-  /* font-weight: 700;
-  font-size: 50px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--white);
-
-  @media (min-width: 768px) {
-    font-size: 100px;
-  } */
-}
-
-.icon {
+.iconHeart {
   width: 44px;
   height: 44px;
 
@@ -82,5 +73,52 @@
   @media (min-width: 768px) {
     width: 82px;
     height: 82px;
+  }
+}
+
+.loaderCircleWrap {
+  position: relative;
+
+  width: 292px;
+  height: 292px;
+
+  @media (min-width: 768px) {
+    width: 427px;
+    height: 427px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 396px;
+    height: 396px;
+  }
+}
+
+.loaderSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.progressCircle {
+  opacity: 0.3;
+  stroke: #fff;
+  stroke-width: 1;
+  fill: none;
+}
+
+.loaderPercentText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+
+  @media (min-width: 768px) {
+    font-size: 80px;
   }
 }
