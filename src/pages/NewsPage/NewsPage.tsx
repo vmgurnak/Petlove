@@ -3,8 +3,9 @@ import toast from 'react-hot-toast';
 import { FC, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchNewsRequest } from '../../redux/news/operations';
+import { selectTotalPages, selectNewsList } from '../../redux/news/slice';
 
 import Header from '../../components/Header/Header';
 import NewsList from '../../components/NewsPageComponents/NewsList/NewsList';
@@ -18,22 +19,23 @@ import css from './NewsPage.module.css';
 
 const NewsPage: FC = () => {
   const dispatch = useAppDispatch();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('keyword');
-  console.log(searchParams);
-  console.log(searchQuery);
+  const page = parseInt(searchParams.get('page') || '1');
 
-  const paramsRequest: INewsParams = {
-    keyword: searchQuery,
-    page: 1,
-    limit: 6,
-  };
+  const totalPages = useAppSelector(selectTotalPages);
+  const newsList = useAppSelector(selectNewsList);
 
   useEffect(() => {
+    const paramsRequest: INewsParams = {
+      keyword: searchQuery,
+      page,
+      limit: 6,
+    };
     dispatch(fetchNewsRequest(paramsRequest))
       .unwrap()
       .then((response) => {
-        console.log(response);
         if (response.results.length === 0) {
           toast(
             'Sorry, there are no news matching your search query. Please try again'
@@ -41,18 +43,25 @@ const NewsPage: FC = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
         toast.error(
           `Error: ${error.response.status} ${error.response.data.message}`
         );
       });
-  }, [dispatch, searchQuery]);
+  }, [dispatch, searchQuery, page]);
 
   const onSetSearchParams = (query: string): void => {
     if (query === searchQuery) {
       return;
     }
     setSearchParams({ keyword: query });
+  };
+
+  const onPageChange = (page: number) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set('page', String(page));
+      return params;
+    });
   };
 
   return (
@@ -67,8 +76,14 @@ const NewsPage: FC = () => {
           onSetSearchParams={onSetSearchParams}
         />
       </div>
-      <NewsList />
-      <Pagination />
+      {Array.isArray(newsList) && newsList.length > 0 && <NewsList />}
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      )}
     </div>
   );
 };

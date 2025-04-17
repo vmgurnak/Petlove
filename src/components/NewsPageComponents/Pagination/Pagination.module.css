@@ -1,12 +1,74 @@
 .pagination {
-  outline: 1px solid red;
-  outline-offset: -1px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  flex-wrap: wrap;
   height: 40px;
 
   @media (min-width: 768px) {
-    width: 446px;
+    gap: 24px;
     height: 44px;
+    width: fit-content;
     margin: 0 auto;
   }
+}
+
+.pageButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(38, 38, 38, 0.05);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  transition: background-color var(--transition) var(--transition-delay);
+
+  @media (min-width: 768px) {
+    height: 44px;
+    width: 44px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}
+
+.pageButton:not(.active):hover {
+  background-color: var(--gray);
+}
+
+.active {
+  background-color: orange;
+  color: var(--white);
+  border: none;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(38, 38, 38, 0.2);
+
+  font-size: 22px;
+
+  @media (min-width: 768px) {
+    height: 44px;
+    width: 44px;
+    font-size: 24px;
+  }
+}
+
+.arrow:disabled {
+  border: 1px solid rgba(38, 38, 38, 0.05);
+  cursor: default;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.dots {
+  padding: 0 4px;
+  color: #999;
+  font-size: 18px;
+  user-select: none;
 }
