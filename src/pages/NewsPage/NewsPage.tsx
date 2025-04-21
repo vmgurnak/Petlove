@@ -22,7 +22,7 @@ const NewsPage: FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('keyword');
-  const page = parseInt(searchParams.get('page') || '1');
+  const page = parseInt(searchParams.get('page') || '1', 10);
 
   const totalPages = useAppSelector(selectTotalPages);
   const newsList = useAppSelector(selectNewsList);

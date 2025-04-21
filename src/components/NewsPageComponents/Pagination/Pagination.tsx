@@ -18,51 +18,55 @@ export const Pagination: React.FC<PaginationProps> = ({
   const width = useWindowWidth();
   const isMobile = width < 768;
 
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
-
-    if (totalPages <= 1) return [1];
-
+  const getPageNumbers = (): number[] => {
     if (isMobile) {
-      if (currentPage > 2) pages.push(1, '...');
-      if (currentPage > 1) pages.push(currentPage - 1);
-      pages.push(currentPage);
-      if (currentPage < totalPages) pages.push(currentPage + 1);
-      if (currentPage < totalPages - 1) pages.push('...', totalPages);
-    } else {
-      if (currentPage > 2) pages.push(1, '...');
-      if (currentPage > 1) pages.push(currentPage - 1);
-      pages.push(currentPage);
-      if (currentPage < totalPages) pages.push(currentPage + 1);
-      if (currentPage < totalPages - 1) pages.push('...', totalPages);
+      return currentPage === totalPages
+        ? [totalPages - 1, totalPages]
+        : [currentPage, currentPage + 1];
     }
 
-    return pages;
+    return currentPage >= totalPages - 1
+      ? [totalPages - 1, totalPages]
+      : [currentPage, currentPage + 1, currentPage + 2];
   };
 
-  const pageNumbers = getPageNumbers();
+  type shouldShowDotsType = (
+    totalPages: number,
+    currentPage: number
+  ) => boolean;
+
+  const shouldShowDots: shouldShowDotsType = (totalPages, currentPage) => {
+    return (
+      totalPages > 2 &&
+      currentPage !== totalPages &&
+      currentPage !== totalPages - 1
+    );
+  };
+
+  const pageNumbers: number[] = getPageNumbers();
 
   return (
     <div className={styles.pagination}>
-      <button
-        onClick={() => onPageChange(1)}
-        disabled={currentPage === 1}
-        className={styles.arrow}
-      >
-        &laquo;
-      </button>
-      <button
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className={styles.arrow}
-      >
-        &lsaquo;
-      </button>
-
-      {pageNumbers.map((page, idx) =>
-        typeof page === 'number' ? (
+      <div className={styles.arrowsWrap}>
+        <button
+          onClick={() => onPageChange(1)}
+          disabled={currentPage === 1}
+          className={styles.arrow}
+        >
+          &laquo;
+        </button>
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={styles.arrow}
+        >
+          &lsaquo;
+        </button>
+      </div>
+      <div className={styles.pageButtonsWrap}>
+        {pageNumbers.map((page) => (
           <button
-            key={idx}
+            key={page}
             onClick={() => onPageChange(page)}
             className={clsx(styles.pageButton, {
               [styles.active]: page === currentPage,
@@ -70,27 +74,27 @@ export const Pagination: React.FC<PaginationProps> = ({
           >
             {page}
           </button>
-        ) : (
-          <span key={idx} className={styles.dots}>
-            ...
-          </span>
-        )
-      )}
-
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className={styles.arrow}
-      >
-        &rsaquo;
-      </button>
-      <button
-        onClick={() => onPageChange(totalPages)}
-        disabled={currentPage === totalPages}
-        className={styles.arrow}
-      >
-        &raquo;
-      </button>
+        ))}
+        {shouldShowDots(totalPages, currentPage) && (
+          <span className={styles.dots}>...</span>
+        )}
+      </div>
+      <div className={styles.arrowsWrap}>
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className={styles.arrow}
+        >
+          &rsaquo;
+        </button>
+        <button
+          onClick={() => onPageChange(totalPages)}
+          disabled={currentPage === totalPages}
+          className={styles.arrow}
+        >
+          &raquo;
+        </button>
+      </div>
     </div>
   );
 };

@@ -9,6 +9,7 @@ interface ButtonProps {
   active?: boolean;
   [key: string]: unknown;
   children?: React.ReactNode;
+  otherProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
 const Button: FC<ButtonProps> = ({

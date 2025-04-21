@@ -14,6 +14,20 @@
   }
 }
 
+.arrowsWrap {
+  display: flex;
+  gap: 6px;
+
+  @media (min-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.pageButtonsWrap {
+  display: flex;
+  gap: 10px;
+}
+
 .pageButton {
   width: 40px;
   height: 40px;
@@ -67,8 +81,24 @@
 }
 
 .dots {
-  padding: 0 4px;
-  color: #999;
-  font-size: 18px;
-  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(38, 38, 38, 0.05);
+
+  font-weight: 500;
+  line-height: 1.25;
+
+  @media (min-width: 768px) {
+    height: 44px;
+    width: 44px;
+
+    font-size: 20px;
+    line-height: 1.1;
+  }
 }
