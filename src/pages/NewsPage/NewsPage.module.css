@@ -45,3 +45,9 @@
 
 .title {
 }
+
+.searchFieldWrap {
+  @media (min-width: 768px) {
+    width: 230px;
+  }
+}

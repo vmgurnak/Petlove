@@ -9,6 +9,12 @@ import {
   ILogOutResponse,
   INewsParams,
   INewsResponse,
+  INoticesParams,
+  INoticesItem,
+  INoticesResponse,
+  INoticesCategories,
+  INoticesSex,
+  INoticesSpecies,
 } from '../types.ts';
 
 const BASE_URL = 'https://petlove.b.goit.study/api';
@@ -21,18 +27,6 @@ export const setAuthHeader = (token: string): void => {
 
 const clearAuthHeader = (): void => {
   axios.defaults.headers.common.Authorization = '';
-};
-
-export const requestNews = async (
-  paramsRequest: INewsParams
-): Promise<INewsResponse> => {
-  const config = {
-    params: paramsRequest,
-  };
-
-  const response = await axios.get('/news', config);
-
-  return response.data;
 };
 
 export const requestLogin = async (
@@ -61,6 +55,55 @@ export const requestLogout = async (): Promise<ILogOutResponse> => {
 
 export const requestRefreshUser = async (): Promise<IRefreshResponse> => {
   const response = await axios.get('/users/current');
+
+  return response.data;
+};
+
+export const requestNews = async (
+  paramsRequest: INewsParams
+): Promise<INewsResponse> => {
+  const config = {
+    params: paramsRequest,
+  };
+
+  const response = await axios.get('/news', config);
+
+  return response.data;
+};
+
+export const requestNotices = async (
+  paramsRequest: INoticesParams
+): Promise<INoticesResponse> => {
+  const config = {
+    params: paramsRequest,
+  };
+
+  const response = await axios.get('/notices', config);
+
+  return response.data;
+};
+
+export const requestNoticesCategories =
+  async (): Promise<INoticesCategories> => {
+    const response = await axios.get('/notices/categories');
+
+    return response.data;
+  };
+
+export const requestNoticesSex = async (): Promise<INoticesSex> => {
+  const response = await axios.get('/notices/sex');
+
+  return response.data;
+};
+
+export const requestNoticesSpecies = async (): Promise<INoticesSpecies> => {
+  const response = await axios.get('/notices/species');
+
+  return response.data;
+};
+
+export const requestNoticesById = async (id: string): Promise<INoticesItem> => {
+  const response = await axios.get(`/notices/${id}`);
 
   return response.data;
 };

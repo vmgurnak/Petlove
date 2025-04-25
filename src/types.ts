@@ -75,3 +75,65 @@ export interface IModalState {
   beforeClose: boolean;
   modalIsLogOut: boolean;
 }
+
+export interface INoticesParams {
+  keyword?: string | null;
+  page?: number;
+  limit?: number;
+  category?: string | null;
+  sex?: string | null;
+  species?: string | null;
+  locationId?: string | null;
+  byPopularity?: boolean;
+  byPrice?: boolean;
+  byDate?: boolean;
+}
+
+interface INoticesLocation {
+  _id: string;
+  stateEn: string;
+  cityEn: string;
+}
+
+interface INoticesUser {
+  _id: string;
+  email: string;
+  phone: string;
+}
+
+export interface INoticesItem {
+  _id: string;
+  species: string;
+  category: string;
+  price?: number;
+  title: string;
+  name: string;
+  birthday: string;
+  comment: string;
+  sex: string;
+  location: string | INoticesLocation;
+  imgURL: string;
+  createdAt: string;
+  user: string | INoticesUser;
+  popularity: number;
+  updatedAt?: string;
+}
+
+export interface INoticesResponse {
+  page: number;
+  perPage: number;
+  totalPages: number;
+  results: INoticesItem[];
+}
+
+export type INoticesCategories = string[];
+
+export type INoticesSex = string[];
+
+export type INoticesSpecies = string[];
+
+export interface INoticesState {
+  notices: INoticesResponse;
+  isLoading: boolean;
+  isError: boolean;
+}

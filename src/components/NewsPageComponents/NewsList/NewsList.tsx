@@ -1,5 +1,3 @@
-import toast from 'react-hot-toast';
-
 import NewsItem from '../NewsItem/NewsItem';
 import { useAppSelector } from '../../../redux/hooks';
 import { selectNewsList } from '../../../redux/news/slice';

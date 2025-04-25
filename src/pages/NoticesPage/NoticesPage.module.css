@@ -1,3 +1,48 @@
 .noticesPage {
-  display: flex;
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  height: 3596px;
+
+  padding: 24px 20px 88px;
+
+  @media (min-width: 768px) {
+    height: 2225px;
+
+    padding: 32px 32px 80px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 1696px;
+  }
+}
+
+.header {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  margin-bottom: 50px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 85px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 96px;
+  }
+}
+
+.title {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 44px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 40px;
+  }
 }

@@ -1,18 +1,12 @@
+import { format } from 'date-fns';
+
 import { Link } from 'react-router-dom';
 
 import { FC } from 'react';
 
-export interface INewsItem {
-  _id: string;
-  imgUrl: string;
-  title: string;
-  text: string;
-  date: string;
-  url: string;
-  id: string;
-}
+import { INewsItem } from '../../../types.ts';
 
-export interface INewsItemProps {
+interface INewsItemProps {
   newsItem: INewsItem;
 }
 
@@ -22,11 +16,15 @@ const NewsItem: FC<INewsItemProps> = ({ newsItem }) => {
 
   return (
     <div className={css.newsItem}>
-      <img className={css.neswImg} src={imgUrl} alt={title} />
+      <div className={css.wrapImg}>
+        <img className={css.neswImg} src={imgUrl} alt={title} />
+      </div>
       <h3 className={css.newsTitle}>{title}</h3>
       <p className={css.newsText}>{text}</p>
       <div className={css.wrapDateLink}>
-        <span className={css.newsDate}>{date}</span>
+        <span className={css.newsDate}>
+          {format(new Date(date), 'dd/MM/yyyy')}
+        </span>
         <Link className={css.newsLink} to={url} target="_blank">
           Read more
         </Link>

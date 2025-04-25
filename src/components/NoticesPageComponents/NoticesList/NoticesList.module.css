@@ -1,0 +1,25 @@
+.noticesList {
+  outline: 1px solid red;
+  outline-offset: -1px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  height: 2824px;
+  margin-bottom: 44px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    height: 1456px;
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 984px;
+    padding: 0 32px;
+  }
+}

@@ -10,7 +10,7 @@ import { selectTotalPages, selectNewsList } from '../../redux/news/slice';
 import Header from '../../components/Header/Header';
 import NewsList from '../../components/NewsPageComponents/NewsList/NewsList';
 import Pagination from '../../components/NewsPageComponents/Pagination/Pagination';
-import SearchField from '../../components/NewsPageComponents/SearchField/SearchField';
+import SearchField from '../../components/REUSABLE/SearchField/SearchField.tsx';
 import Title from '../../components/Title/Title';
 
 import { INewsParams } from '../../types.ts';
@@ -70,6 +70,7 @@ const NewsPage: FC = () => {
       <div className={css.titleSearchWrap}>
         <Title textTitle="News" addClass={css.title} />
         <SearchField
+          addClass={css.searchFieldWrap}
           placeholder="Search"
           searchQuery={searchQuery}
           setSearchParams={setSearchParams}

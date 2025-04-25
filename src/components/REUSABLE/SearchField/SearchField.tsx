@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { FC, useState } from 'react';
 import { SetURLSearchParams } from 'react-router-dom';
 
-import { SvgIcon } from '../../REUSABLE/SvgIcon';
+import { SvgIcon } from '../SvgIcon';
 import { ICONS } from '../../../constants/constants';
 
 import css from './SearchField.module.css';
