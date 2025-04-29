@@ -23,7 +23,7 @@ const NewsItem: FC<INewsItemProps> = ({ newsItem }) => {
       <p className={css.newsText}>{text}</p>
       <div className={css.wrapDateLink}>
         <span className={css.newsDate}>
-          {format(new Date(date), 'dd/MM/yyyy')}
+          {date && format(new Date(date), 'dd/MM/yyyy')}
         </span>
         <Link className={css.newsLink} to={url} target="_blank">
           Read more

@@ -9,11 +9,13 @@ import NoticesList from '../../components/NoticesPageComponents/NoticesList/Noti
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchNoticesRequest } from '../../redux/notices/operations';
+import { selectNoticesList } from '../../redux/notices/selectors';
 
 import css from './NoticesPage.module.css';
 
 const NoticesPage = () => {
   const dispatch = useAppDispatch();
+  const noticesList = useAppSelector(selectNoticesList);
 
   useEffect(() => {
     dispatch(fetchNoticesRequest())
@@ -37,7 +39,7 @@ const NoticesPage = () => {
       <Header addClass={css.header} />
       <Title textTitle="Find your favorite pet" addClass={css.title} />
       <NoticesFilters />
-      <NoticesList />
+      {Array.isArray(noticesList) && noticesList.length > 0 && <NoticesList />}
     </div>
   );
 };

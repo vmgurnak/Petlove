@@ -43,6 +43,7 @@ export const ICONS = {
   search: `${icons}#search`,
   crossSearch: `${icons}#cross-search`,
   modalClose: `${icons}#modal-close`,
+  starRating: `${icons}#star-rating`,
 };
 
 export const IMAGES_HOME = {
