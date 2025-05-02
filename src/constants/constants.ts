@@ -44,6 +44,7 @@ export const ICONS = {
   crossSearch: `${icons}#cross-search`,
   modalClose: `${icons}#modal-close`,
   starRating: `${icons}#star-rating`,
+  favorite: `${icons}#favorite`,
 };
 
 export const IMAGES_HOME = {

@@ -27,14 +27,9 @@ const LogOutBtn: FC<LogOutBtnProps> = ({ isLight }) => {
     dispatch(changeModalIsLogOut(true));
   };
 
-  const handleLogOut = () => {
-    dispatch(apiLogout());
-  };
-
   return (
     <button
       className={clsx(css.logOut, isLight && css.light)}
-      // onClick={handleLogOut}
       onClick={() => {
         handleOpenModal();
         handleModalIsLogOut();

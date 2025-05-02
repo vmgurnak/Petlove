@@ -1,4 +1,7 @@
 .noticesItem {
+  display: flex;
+  flex-direction: column;
+
   width: 335px;
   height: 454px;
 
@@ -16,6 +19,10 @@
     width: 363px;
     height: 472px;
   }
+}
+
+.wrapNoticesItem {
+  flex-grow: 1;
 }
 
 .wrapImg {
@@ -80,6 +87,7 @@
 
 .wrapInfo {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 14px;
 
@@ -114,6 +122,8 @@
   line-height: 1.17;
   letter-spacing: -0.02em;
   color: var(--dark);
+
+  white-space: nowrap;
 }
 
 .noticeComment {
@@ -124,13 +134,67 @@
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: var(--text-dark);
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .noticePrice {
-  margin-bottom: 12px;
-
   font-weight: 700;
   font-size: 16px;
   line-height: 1.25;
   color: #2b2b2a;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.wrapBtn {
+  display: flex;
+  gap: 10px;
+}
+
+.learnMoreBtn {
+  width: 231px;
+  padding: 14px 80.5px;
+
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+
+  @media (min-width: 768px) {
+    width: 236px;
+    padding: 14px 78px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 257px;
+    padding: 14px 88px;
+  }
+}
+
+.favorBtn {
+  border-radius: 50%;
+  padding: 14px;
+  width: 46px;
+  height: 46px;
+  background-color: var(--ligth);
+  /* background-color: #fbe7c1; */
+
+  @media (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+    padding: 15px;
+  }
+}
+
+.iconFavor {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: var(--orange);
 }

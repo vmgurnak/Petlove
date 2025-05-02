@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import { fetchNoticesRequest } from './operations';
-import { INoticesState, INoticesResponse, INoticesItem } from '../../types.ts';
+import { INoticesState, INoticesResponse } from '../../types.ts';
 
 const initialState: INoticesState = {
   notices: { page: 1, perPage: 6, totalPages: 0, results: [] },

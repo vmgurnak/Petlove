@@ -10,9 +10,7 @@ const NoticesList = () => {
   return (
     <ul className={css.noticesList}>
       {noticesList.map((item) => (
-        <li className={css.noticesItem} key={item._id}>
-          <NoticesItem noticesItem={item} />
-        </li>
+        <NoticesItem key={item._id} noticesItem={item} />
       ))}
     </ul>
   );
