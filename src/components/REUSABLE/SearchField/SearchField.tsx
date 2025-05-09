@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import toast from 'react-hot-toast';
 
 import { FC, useState } from 'react';
-import { SetURLSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { SvgIcon } from '../SvgIcon';
 import { ICONS } from '../../../constants/constants';
@@ -10,20 +10,14 @@ import { ICONS } from '../../../constants/constants';
 import css from './SearchField.module.css';
 
 interface SearchFieldProps {
-  searchQuery?: string | null;
-  setSearchParams: SetURLSearchParams;
-  onSetSearchParams: (query: string) => void;
-  placeholder: string;
+  placeholder?: string;
   addClass?: string;
 }
 
-const SearchField: FC<SearchFieldProps> = ({
-  searchQuery,
-  setSearchParams,
-  onSetSearchParams,
-  placeholder,
-  addClass,
-}) => {
+const SearchField: FC<SearchFieldProps> = ({ placeholder, addClass }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('keyword');
+
   const [valueFilter, setValueFilter] = useState<string>(searchQuery ?? '');
 
   const handleSubmit = (evt: React.FormEvent) => {
@@ -32,7 +26,26 @@ const SearchField: FC<SearchFieldProps> = ({
       toast('Please enter your request.');
       return;
     }
-    onSetSearchParams(valueFilter);
+    if (valueFilter === searchQuery) {
+      return;
+    }
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set('page', '1');
+      params.set('keyword', valueFilter);
+      return params;
+    });
+  };
+
+  const handleDeleteFilter = () => {
+    setValueFilter('');
+    // setSearchParams({});
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set('page', '1');
+      params.delete('keyword');
+      return params;
+    });
   };
 
   return (
@@ -52,12 +65,7 @@ const SearchField: FC<SearchFieldProps> = ({
         <SvgIcon addClass={css.iconSearch} icon={ICONS.search} />
       </button>
       {valueFilter && (
-        <button
-          onClick={() => {
-            setValueFilter('');
-            setSearchParams({});
-          }}
-        >
+        <button onClick={handleDeleteFilter}>
           <SvgIcon addClass={css.iconCross} icon={ICONS.crossSearch} />
         </button>
       )}

@@ -25,6 +25,7 @@ const NoticesPage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('keyword');
+  const category = searchParams.get('category');
   const page = parseInt(searchParams.get('page') || '1', 10);
 
   const totalPage = useAppSelector(selectTotalPages);
@@ -33,6 +34,7 @@ const NoticesPage = () => {
   useEffect(() => {
     const paramsRequest: INoticesParams = {
       keyword: searchQuery,
+      category: category,
       page,
       limit: 6,
     };
@@ -51,14 +53,7 @@ const NoticesPage = () => {
           `Error: ${error.response.status} ${error.response.data.message}`
         );
       });
-  }, [dispatch, searchQuery, page]);
-
-  // const onSetSearchParams = (query: string): void => {
-  //   if (query === searchQuery) {
-  //     return;
-  //   }
-  //   setSearchParams({ keyword: query });
-  // };
+  }, [dispatch, searchQuery, page, category]);
 
   const onPageChange = (page: number) => {
     setSearchParams((prev) => {

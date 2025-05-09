@@ -49,13 +49,6 @@ const NewsPage: FC = () => {
       });
   }, [dispatch, searchQuery, page]);
 
-  const onSetSearchParams = (query: string): void => {
-    if (query === searchQuery) {
-      return;
-    }
-    setSearchParams({ keyword: query });
-  };
-
   const onPageChange = (page: number) => {
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev);
@@ -69,13 +62,7 @@ const NewsPage: FC = () => {
       <Header addClass={css.header} />
       <div className={css.titleSearchWrap}>
         <Title textTitle="News" addClass={css.title} />
-        <SearchField
-          addClass={css.searchFieldWrap}
-          placeholder="Search"
-          searchQuery={searchQuery}
-          setSearchParams={setSearchParams}
-          onSetSearchParams={onSetSearchParams}
-        />
+        <SearchField addClass={css.searchFieldWrap} placeholder="Search" />
       </div>
       {Array.isArray(newsList) && newsList.length > 0 && <NewsList />}
       {totalPages > 1 && (
