@@ -19,7 +19,6 @@ const Button: FC<ButtonProps> = ({
   active = false,
   ...otherProps
 }) => {
-  console.log(otherProps);
   return (
     <button
       className={clsx(css.btn, addClass, active && css.active)}

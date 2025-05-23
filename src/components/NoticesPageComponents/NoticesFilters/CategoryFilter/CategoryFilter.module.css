@@ -1,2 +1,86 @@
-.categoryFilter {
+.selectWrapper {
+  width: 143px;
+  border-radius: 30px;
+  font-family: inherit;
+}
+
+/* Обертка */
+:global(.custom-select__control) {
+  background-color: #fff7e5;
+  border: none;
+  border-radius: 30px !important;
+  padding: 12px;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+/* Убираем лишние стили */
+:global(.custom-select__control--is-focused) {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Текущий выбранный элемент */
+.custom-select__single-value {
+  color: #000;
+  font-weight: 500;
+}
+
+/* Плейсхолдер */
+:global(.custom-select__placeholder) {
+  color: #000;
+}
+
+/* Меню опций */
+:global(.custom-select__menu) {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+/* Опции */
+:global(.custom-select__option) {
+  padding: 10px 16px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Ховер */
+:global(.custom-select__option--is-focused) {
+  background-color: #fcefc7;
+}
+
+/* Выбранная опция */
+:global(.custom-select__option--is-selected) {
+  background-color: transparent;
+  color: #f4b400;
+  font-weight: 600;
+}
+
+/* Стрелка */
+:global(.custom-select__indicators) {
+  padding: 0;
+}
+
+:global(.custom-select__indicator-separator) {
+  display: none;
+}
+
+:global(.custom-select__dropdown-indicator) {
+  color: #000;
+  transition: transform 0.3s;
+}
+
+:global(
+    .custom-select__control--menu-is-open .custom-select__dropdown-indicator
+  ) {
+  transform: rotate(180deg);
 }
