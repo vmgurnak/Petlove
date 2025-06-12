@@ -13,9 +13,9 @@ const initialState: IAuthState = {
   email: null,
   token: null,
   isLogged: false,
+  isRefreshing: false,
   isLoading: false,
   isError: false,
-  isRefreshing: false,
 };
 
 const handlePending = (state: IAuthState) => {
@@ -57,10 +57,7 @@ const authSlice = createSlice({
           state.isLoading = false;
         }
       )
-      .addCase(apiLogin.rejected, (state) => {
-        state.isLoading = false;
-        state.isError = true;
-      })
+      .addCase(apiLogin.rejected, handleRejected)
       .addCase(apiLogout.pending, handlePending)
       .addCase(apiLogout.fulfilled, (state) => {
         state.name = null;

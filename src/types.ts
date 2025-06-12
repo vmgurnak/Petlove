@@ -132,8 +132,20 @@ export type INoticesSex = string[];
 
 export type INoticesSpecies = string[];
 
+export type ISelectList = INoticesCategories | INoticesSex | INoticesSpecies;
+
 export interface INoticesState {
   notices: INoticesResponse;
   isLoading: boolean;
   isError: boolean;
 }
+
+export interface ICity {
+  _id: string;
+  useCounty: string;
+  stateEn: string;
+  cityEn: string;
+  countyEn: string;
+}
+
+export type ICities = ICity[];

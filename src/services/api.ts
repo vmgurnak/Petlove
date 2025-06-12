@@ -12,9 +12,8 @@ import {
   INoticesParams,
   INoticesItem,
   INoticesResponse,
-  INoticesCategories,
-  INoticesSex,
-  INoticesSpecies,
+  ISelectList,
+  ICities,
 } from '../types.ts';
 
 const BASE_URL = 'https://petlove.b.goit.study/api';
@@ -83,20 +82,19 @@ export const requestNotices = async (
   return response.data;
 };
 
-export const requestNoticesCategories =
-  async (): Promise<INoticesCategories> => {
-    const response = await axios.get('/notices/categories');
+export const requestNoticesCategories = async (): Promise<ISelectList> => {
+  const response = await axios.get('/notices/categories');
 
-    return response.data;
-  };
+  return response.data;
+};
 
-export const requestNoticesSex = async (): Promise<INoticesSex> => {
+export const requestNoticesSex = async (): Promise<ISelectList> => {
   const response = await axios.get('/notices/sex');
 
   return response.data;
 };
 
-export const requestNoticesSpecies = async (): Promise<INoticesSpecies> => {
+export const requestNoticesSpecies = async (): Promise<ISelectList> => {
   const response = await axios.get('/notices/species');
 
   return response.data;
@@ -104,6 +102,22 @@ export const requestNoticesSpecies = async (): Promise<INoticesSpecies> => {
 
 export const requestNoticesById = async (id: string): Promise<INoticesItem> => {
   const response = await axios.get(`/notices/${id}`);
+
+  return response.data;
+};
+
+export const requestCities = async (keyword: string): Promise<ICities> => {
+  const config = {
+    params: { keyword },
+  };
+
+  const response = await axios.get('/cities', config);
+
+  return response.data;
+};
+
+export const requestCitiesPets = async (): Promise<ICities> => {
+  const response = await axios.get('/cities/locations');
 
   return response.data;
 };

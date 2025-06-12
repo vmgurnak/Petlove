@@ -4,6 +4,7 @@
 
 /* Обертка */
 :global(.select__control) {
+  height: 42px !important;
   background-color: var(--white) !important;
   border: none !important;
   border-radius: 30px !important;
@@ -14,6 +15,14 @@
   font-size: 14px !important;
   line-height: 1.29 !important;
   letter-spacing: -0.03em !important;
+
+  @media (min-width: 768px) {
+    height: 48px !important;
+    padding: 14px !important;
+
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+  }
 }
 
 :global(.select__control--is-focused) {
@@ -26,19 +35,13 @@
 }
 
 :global(.select__placeholder) {
-  color: #262626 !important;
+  color: var(--dark) !important;
 }
-
-/* Текущий выбранный элемент */
-/* .select__single-value {
-  color: #000;
-  font-weight: 500;
-} */
 
 :global(.select__indicator) {
   padding: 0px !important;
   transition: transform 0.3s !important;
-  color: #262626 !important;
+  color: var(--dark) !important;
 }
 
 :global(.select__indicator) svg {
@@ -91,5 +94,5 @@
 }
 
 /* :global(.select__indicator-separator) {
-  display: none !important;
-} */
+   display: none !important;
+ } */

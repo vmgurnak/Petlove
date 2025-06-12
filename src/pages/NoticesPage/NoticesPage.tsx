@@ -26,6 +26,9 @@ const NoticesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('keyword');
   const category = searchParams.get('category');
+  const sex = searchParams.get('sex');
+  const species = searchParams.get('species');
+  const locationId = searchParams.get('locationId');
   const page = parseInt(searchParams.get('page') || '1', 10);
 
   const totalPage = useAppSelector(selectTotalPages);
@@ -35,6 +38,9 @@ const NoticesPage = () => {
     const paramsRequest: INoticesParams = {
       keyword: searchQuery,
       category: category,
+      sex: sex,
+      species: species,
+      locationId: locationId,
       page,
       limit: 6,
     };
@@ -53,7 +59,7 @@ const NoticesPage = () => {
           `Error: ${error.response.status} ${error.response.data.message}`
         );
       });
-  }, [dispatch, searchQuery, page, category]);
+  }, [dispatch, searchQuery, page, category, sex, species, locationId]);
 
   const onPageChange = (page: number) => {
     setSearchParams((prev) => {

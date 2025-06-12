@@ -2,12 +2,16 @@
   position: relative;
 
   width: 100%;
+
+  @media (min-width: 768px) {
+    width: 227px;
+  }
 }
 
 .searchFieldInput {
   padding: 12px;
 
-  border: 1px solid rgba(38, 38, 38, 0.15);
+  border: 1px solid var(--white);
   background-color: var(--white);
   outline: none;
 
@@ -40,7 +44,7 @@
 }
 
 .searchFieldInput::placeholder {
-  color: rgba(38, 38, 38, 0.5);
+  color: var(--dark);
 }
 
 .searchBtn {
