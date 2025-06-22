@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import Select, { SingleValue } from 'react-select';
 import clsx from 'clsx';
 
-import { ISelectList } from '@/types';
+import { ISelectList } from '../../../types';
 
 import css from './FilterSelect.module.css';
 

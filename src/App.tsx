@@ -21,6 +21,7 @@ const RegistrationPage = lazy(
 );
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFounPage/NotFoundPage'));
 
 function App() {
   const dispatch = useAppDispatch();
@@ -56,7 +57,7 @@ function App() {
           path="/profile"
           element={<PrivateRoute component={<ProfilePage />} />}
         />
-        <Route path="*" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );

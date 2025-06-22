@@ -1,5 +1,6 @@
 import SearchField from '../../REUSABLE/SearchField/SearchField';
 import FilterSelect from './FilterSelect';
+
 import LocationFilter from './LocationFilter';
 
 import { requestNoticesCategories } from '../../../services/api';
@@ -31,7 +32,7 @@ const NoticesFilters = () => {
           filter="species"
           addClass={css.speciesWrap}
         />
-        <LocationFilter placeholder="Location" addClass={css.locationWrap} />
+        <LocationFilter addClass={css.locationWrap} />
       </div>
     </div>
   );
