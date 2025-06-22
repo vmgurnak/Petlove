@@ -7,7 +7,6 @@ import {
   changeAfterOpen,
   changeModalIsLogOut,
 } from '../../../../redux/modal/slice.ts';
-import { apiLogout } from '../../../../redux/auth/operations.ts';
 
 import css from './LogOutBtn.module.css';
 interface LogOutBtnProps {

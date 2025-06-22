@@ -96,7 +96,7 @@
 import { FC, useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Select from 'react-select/async';
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 import clsx from 'clsx';
 
 import { requestCities, requestCitiesPets } from '../../../services/api';
@@ -120,7 +120,7 @@ const LocationFilter: FC<LocationFilterProps> = ({
   placeholder = 'Location',
   addClass,
 }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const [citiesWithPets, setCitiesWithPets] = useState<ICities>([]);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
 

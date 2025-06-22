@@ -20,7 +20,6 @@ import CloseButton from './CloseButton/CloseButton';
 
 import css from './Modal.module.css';
 import ModalLogOut from './ModalLogOut/ModalLogOut.tsx';
-import ModalAttention from './ModalAttention/ModalAttention.tsx';
 
 interface IModalProps {
   children?: React.ReactNode;

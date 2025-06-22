@@ -28,7 +28,7 @@ const FilterSelect: FC<FilterSelectProps> = ({
 }) => {
   const [value, setValue] = useState<OptionType | null>(null);
   const [selectList, setSelectList] = useState<ISelectList>([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const fetchSelectList = async () => {
@@ -42,8 +42,6 @@ const FilterSelect: FC<FilterSelectProps> = ({
 
     fetchSelectList();
   }, [requestSelectList]);
-
-  console.log(selectList);
 
   const options: OptionType[] = [
     { value: '', label: 'Show all' },
