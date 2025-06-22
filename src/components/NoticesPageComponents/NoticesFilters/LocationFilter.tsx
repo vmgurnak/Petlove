@@ -96,7 +96,7 @@
 import { FC, useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Select from 'react-select/async';
-// import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import clsx from 'clsx';
 
 import { requestCities, requestCitiesPets } from '../../../services/api';
