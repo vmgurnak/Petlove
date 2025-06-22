@@ -143,8 +143,33 @@ const LocationFilter: FC<LocationFilterProps> = ({
 
   console.log(citiesMap);
 
-  const loadOptions = debounce(
-    async (inputValue: string, callback: (options: OptionType[]) => void) => {
+  // const loadOptions = debounce(
+  //   async (inputValue: string, callback: (options: OptionType[]) => void) => {
+  //     if (!inputValue.trim()) return callback([]);
+
+  //     try {
+  //       const results = await requestCities(inputValue);
+  //       const filtered = results.filter((city) => citiesMap.has(city._id));
+
+  //       const options = filtered.map((city) => ({
+  //         value: city._id,
+  //         label: `${city.stateEn}, ${city.cityEn}`,
+  //       }));
+
+  //       callback(options);
+  //     } catch (error) {
+  //       console.error('Search error:', error);
+  //       callback([]);
+  //     }
+  //   },
+  //   300
+  // );
+
+  const loadOptions = useMemo(() => {
+    const load = async (
+      inputValue: string,
+      callback: (options: OptionType[]) => void
+    ) => {
       if (!inputValue.trim()) return callback([]);
 
       try {
@@ -161,9 +186,13 @@ const LocationFilter: FC<LocationFilterProps> = ({
         console.error('Search error:', error);
         callback([]);
       }
-    },
-    300
-  );
+    };
+
+    return debounce(load, 300) as (
+      inputValue: string,
+      callback: (options: OptionType[]) => void
+    ) => void;
+  }, [citiesMap]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
