@@ -31,6 +31,11 @@ import loaderImgTab2x from '../assets/LoaderImg/loader-img-tab2x.webp';
 import loaderImgPC1x from '../assets/LoaderImg/loader-img-pc1x.webp';
 import loaderImgPC2x from '../assets/LoaderImg/loader-img-pc2x.webp';
 
+import notFoundImgMob1x from '../assets/NotFoundImg/notfound-img-mob-png1x.png';
+import notFoundImgMob2x from '../assets/NotFoundImg/notfound-img-mob-png2x.png';
+import notFoundImgTabPc1x from '../assets/NotFoundImg/notfound-img-tab-pc1x.jpg';
+import notFoundImgTabPc2x from '../assets/NotFoundImg/notfound-img-tab-pc2x.jpg';
+
 export const ICONS = {
   heart: `${icons}#heart`,
   heartWhite: `${icons}#heart-white`,
@@ -86,4 +91,11 @@ export const IMAGES_LOADER = {
   tab2x: loaderImgTab2x,
   pc1x: loaderImgPC1x,
   pc2x: loaderImgPC2x,
+};
+
+export const IMAGES_NOTFOUND = {
+  mob1x: notFoundImgMob1x,
+  mob2x: notFoundImgMob2x,
+  tab1x: notFoundImgTabPc1x,
+  tab2x: notFoundImgTabPc2x,
 };

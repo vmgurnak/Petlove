@@ -22,7 +22,7 @@
 }
 
 .btn:hover {
-  background-color: #f9b020;
+  background-color: var(--orange-dark);
 }
 
 .btn[disabled] {

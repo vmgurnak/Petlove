@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import { FC } from 'react';
 import { useWindowWidth } from './useWindowWidth';
 
 import styles from './Pagination.module.css';
@@ -10,7 +10,7 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,

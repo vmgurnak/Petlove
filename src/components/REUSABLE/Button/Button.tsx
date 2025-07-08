@@ -3,13 +3,13 @@ import { FC } from 'react';
 
 import css from './Button.module.css';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   addClass?: string;
   disabled?: boolean;
   active?: boolean;
   [key: string]: unknown;
   children?: React.ReactNode;
-  otherProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  // otherProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
 const Button: FC<ButtonProps> = ({
