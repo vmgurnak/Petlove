@@ -21,6 +21,10 @@ const HomePage = () => {
       <div className={css.imgWrap}>
         <picture>
           <source
+            srcSet={`${IMAGES_HOME.pc1x} 1x, ${IMAGES_HOME.pc2x} 2x`}
+            media="(min-width: 1280px)"
+          />
+          <source
             srcSet={`${IMAGES_HOME.tab1x} 1x, ${IMAGES_HOME.tab2x} 2x`}
             media="(min-width: 768px)"
           />

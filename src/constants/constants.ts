@@ -31,10 +31,10 @@ import loaderImgTab2x from '../assets/LoaderImg/loader-img-tab2x.webp';
 import loaderImgPC1x from '../assets/LoaderImg/loader-img-pc1x.webp';
 import loaderImgPC2x from '../assets/LoaderImg/loader-img-pc2x.webp';
 
-import notFoundImgMob1x from '../assets/NotFoundImg/notfound-img-mob-png1x.png';
-import notFoundImgMob2x from '../assets/NotFoundImg/notfound-img-mob-png2x.png';
-import notFoundImgTabPc1x from '../assets/NotFoundImg/notfound-img-tab-pc1x.jpg';
-import notFoundImgTabPc2x from '../assets/NotFoundImg/notfound-img-tab-pc2x.jpg';
+import notFoundImgMob1x from '../assets/NotFoundImg/notfound-img-mob1x.webp';
+import notFoundImgMob2x from '../assets/NotFoundImg/notfound-img-mob2x.webp';
+import notFoundImgTab1x from '../assets/NotFoundImg/notfound-img-tab1x.webp';
+import notFoundImgTab2x from '../assets/NotFoundImg/notfound-img-tab2x.webp';
 
 export const ICONS = {
   heart: `${icons}#heart`,
@@ -96,6 +96,6 @@ export const IMAGES_LOADER = {
 export const IMAGES_NOTFOUND = {
   mob1x: notFoundImgMob1x,
   mob2x: notFoundImgMob2x,
-  tab1x: notFoundImgTabPc1x,
-  tab2x: notFoundImgTabPc2x,
+  tab1x: notFoundImgTab1x,
+  tab2x: notFoundImgTab2x,
 };
