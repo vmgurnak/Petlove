@@ -14,6 +14,7 @@ import {
   INoticesResponse,
   ISelectList,
   ICities,
+  IFriends,
 } from '../types.ts';
 
 const BASE_URL = 'https://petlove.b.goit.study/api';
@@ -118,6 +119,12 @@ export const requestCities = async (keyword: string): Promise<ICities> => {
 
 export const requestCitiesPets = async (): Promise<ICities> => {
   const response = await axios.get('/cities/locations');
+
+  return response.data;
+};
+
+export const requestFriends = async (): Promise<IFriends> => {
+  const response = await axios.get('/friends');
 
   return response.data;
 };

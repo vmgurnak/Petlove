@@ -149,3 +149,17 @@ export interface ICity {
 }
 
 export type ICities = ICity[];
+
+export interface IFriend {
+  _id: string;
+  title: string;
+  url: string | null;
+  addressUrl: string | null;
+  imageUrl: string;
+  address: string | null;
+  phone: string | null;
+  email: string | null;
+  workDays: [] | null;
+}
+
+export type IFriends = IFriend[];
