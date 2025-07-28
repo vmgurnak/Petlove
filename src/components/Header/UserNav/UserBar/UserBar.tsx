@@ -6,7 +6,7 @@ import { SvgIcon } from '../../../REUSABLE/SvgIcon.tsx';
 import { ICONS } from '../../../../constants/constants';
 
 import { useAppSelector } from '../../../../redux/hooks.ts';
-import { selectName } from '../../../../redux/auth/slice.ts';
+import { selectName } from '../../../../redux/auth/selectors.ts';
 
 import css from './UserBar.module.css';
 

@@ -31,6 +31,7 @@ const newsSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
       }),
+
   // .addCase(apiLogout.fulfilled, (state) => {
   //   state.news = initialState.news;
   //   state.isLoading = false;

@@ -9,7 +9,7 @@ import UserNav from './UserNav/UserNav';
 import MenuMobileBtn from './MenuMobileBtn/MenuMobileBtn';
 
 import { useAppSelector } from '../../redux/hooks.ts';
-import { selectIsLogged } from '../../redux/auth/slice.ts';
+import { selectIsLogged } from '../../redux/auth/selectors.ts';
 
 import css from './Header.module.css';
 

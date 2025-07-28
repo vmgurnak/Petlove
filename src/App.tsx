@@ -7,7 +7,7 @@ import PrivateRoute from './PrivateRoute';
 import Layout from './components/Layout/Layout';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { apiRefreshUser } from '../src/redux/auth/operations';
-import { selectIsRefreshing } from '../src/redux/auth/slice';
+import { selectIsRefreshing } from '../src/redux/auth/selectors';
 import LoaderRefresh from './components/REUSABLE/LoaderRefresh/LoaderRefresh';
 
 import './App.css';

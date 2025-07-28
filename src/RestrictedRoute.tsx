@@ -1,5 +1,5 @@
 import { useAppSelector } from './redux/hooks';
-import { selectIsLogged } from './redux/auth/slice';
+import { selectIsLogged } from './redux/auth/selectors';
 import { Navigate } from 'react-router-dom';
 import { FC } from 'react';
 
