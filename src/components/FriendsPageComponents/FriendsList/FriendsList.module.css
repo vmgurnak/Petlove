@@ -1,14 +1,21 @@
 .friendsList {
-  outline: 1px solid red;
-  outline-offset: -1px;
+  display: flex;
+  flex-direction: column;
 
   height: 1816px;
 
+  gap: 20px;
+
   @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 1060px;
   }
 
   @media (min-width: 1280px) {
     height: 644px;
+
+    row-gap: 28px;
+    column-gap: 19px;
   }
 }

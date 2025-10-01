@@ -150,6 +150,15 @@ export interface ICity {
 
 export type ICities = ICity[];
 
+interface IWorkDay {
+  _id: string;
+  isOpen: boolean;
+  from: string;
+  to: string;
+}
+
+export type IWorkDays = IWorkDay[] | [] | null;
+
 export interface IFriend {
   _id: string;
   title: string;
@@ -159,7 +168,13 @@ export interface IFriend {
   address: string | null;
   phone: string | null;
   email: string | null;
-  workDays: [] | null;
+  workDays: IWorkDays;
 }
 
-export type IFriends = IFriend[];
+export type IFriendsResponce = IFriend[];
+
+export interface IFriendsState {
+  friends: IFriendsResponce;
+  isLoading: boolean;
+  isError: boolean;
+}

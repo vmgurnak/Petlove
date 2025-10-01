@@ -1,16 +1,16 @@
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// import { requestFriends } from '../../services/api';
-// import { INewsParams, INewsResponse } from '../../types.ts';
+import { requestFriends } from '../../services/api';
+import { IFriendsResponce } from '../../types.ts';
 
-// export const fetchNewsRequest = createAsyncThunk<INewsResponse, INewsParams>(
-//   'fetchNewsRequest',
-//   async (paramsRequest, thunkAPI) => {
-//     try {
-//       const response = await requestFriends(paramsRequest);
-//       return response;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error);
-//     }
-//   }
-// );
+export const fetchFriendsRequest = createAsyncThunk<IFriendsResponce>(
+  'fetchNewsRequest',
+  async (_, thunkAPI) => {
+    try {
+      const response = await requestFriends();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
