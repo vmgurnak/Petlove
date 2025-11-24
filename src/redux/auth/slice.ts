@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { apiRegister, apiLogin, apiLogout, apiRefreshUser } from './operations';
-import { RootState } from '../store';
 import {
   ILoginResponse,
   IRegisterResponse,
