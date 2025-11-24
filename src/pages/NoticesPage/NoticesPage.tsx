@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 import Title from '../../components/Title/Title';
 import NoticesFilters from '../../components/NoticesPageComponents/NoticesFilters/NoticesFilters';
 import NoticesList from '../../components/NoticesPageComponents/NoticesList/NoticesList';
-import Pagination from '../../components/NewsPageComponents/Pagination/Pagination.tsx';
+import Pagination from '../../components/REUSABLE/Pagination/Pagination.tsx';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchNoticesRequest } from '../../redux/notices/operations';

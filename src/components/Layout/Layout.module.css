@@ -1,6 +1,6 @@
 .layout {
-  outline: 1px solid red;
-  outline-offset: -1px;
+  /* outline: 1px solid red;
+  outline-offset: -1px; */
 
   width: 375px;
   margin: 0 auto;

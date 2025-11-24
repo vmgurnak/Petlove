@@ -9,7 +9,7 @@ import { selectTotalPages, selectNewsList } from '../../redux/news/slice';
 
 import Header from '../../components/Header/Header';
 import NewsList from '../../components/NewsPageComponents/NewsList/NewsList';
-import Pagination from '../../components/NewsPageComponents/Pagination/Pagination';
+import Pagination from '../../components/REUSABLE/Pagination/Pagination.tsx';
 import SearchField from '../../components/REUSABLE/SearchField/SearchField.tsx';
 import Title from '../../components/Title/Title';
 

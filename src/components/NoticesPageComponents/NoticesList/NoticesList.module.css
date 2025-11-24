@@ -1,6 +1,6 @@
 .noticesList {
-  outline: 1px solid red;
-  outline-offset: -1px;
+  /* outline: 1px solid red;
+  outline-offset: -1px; */
 
   display: flex;
   flex-direction: column;

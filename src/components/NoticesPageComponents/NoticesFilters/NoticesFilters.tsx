@@ -32,7 +32,7 @@ const NoticesFilters = () => {
           filter="species"
           addClass={css.speciesWrap}
         />
-        <LocationFilter addClass={css.locationWrap} />
+        <LocationFilter addClass={css.locationWrap} placeholder="Location" />
       </div>
     </div>
   );

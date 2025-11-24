@@ -1,17 +1,12 @@
-/* .searchFieldWrap {
+.searchLocationWrap {
   position: relative;
-
   width: 100%;
-
-  @media (min-width: 768px) {
-    width: 227px;
-  }
 }
 
-.searchFieldInput {
+.searchLocationInput {
   padding: 12px;
 
-  border: 1px solid var(--white);
+  border: 1px solid rgba(38, 38, 38, 0.15);
   background-color: var(--white);
   outline: none;
 
@@ -44,63 +39,10 @@
 }
 
 .searchFieldInput::placeholder {
-  color: var(--dark);
+  color: rgba(38, 38, 38, 0.5);
 }
 
 .searchBtn {
-}
-
-.iconSearch {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
-  width: 18px;
-  height: 18px;
-
-  stroke: var(--dark);
-
-  @media (min-width: 768px) {
-    top: 15px;
-    right: 15px;
-  }
-}
-
-.iconCross {
-  position: absolute;
-  top: 12px;
-  right: 36px;
-
-  width: 18px;
-  height: 18px;
-
-  stroke: var(--dark);
-
-  @media (min-width: 768px) {
-    top: 15px;
-  }
-} */
-
-.selectField {
-  flex: 1;
-  min-width: 200px;
-}
-
-.select__control {
-  background-color: #fff8e6;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  box-shadow: none;
-  padding-left: 8px;
-  font-size: 14px;
-}
-
-.select__menu {
-  z-index: 100;
-}
-
-.select__option--is-focused {
-  background-color: #f0e7d5;
 }
 
 .iconSearch {
