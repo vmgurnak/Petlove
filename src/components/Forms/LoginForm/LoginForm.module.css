@@ -1,6 +1,6 @@
 .loginWrap {
-  outline: 1px solid red;
-  outline-offset: -1px;
+  /* outline: 1px solid red;
+  outline-offset: -1px; */
 
   display: flex;
   justify-content: center;
@@ -29,8 +29,8 @@
 }
 
 .loginForm {
-  outline: 1px solid red;
-  outline-offset: -1px;
+  /* outline: 1px solid red;
+  outline-offset: -1px; */
 
   width: 100%;
 }
